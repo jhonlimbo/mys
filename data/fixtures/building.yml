@@ -1,0 +1,10 @@
+#data/fixtures/building.yml
+Building:
+  paraguay_3260:
+    name: Paraguay 3260
+  gallo_1455:
+    name: Gallo 1455
+  san_juan_1990:
+    name: San Juan 1990
+  cordoba_996:
+    name: Cordoba 996

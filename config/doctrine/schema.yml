@@ -1,0 +1,88 @@
+# Your additional tables live here
+
+options:
+  type: INNODB
+
+Building:
+  columns:
+    id: {type: integer(4), primary: true, autoincrement: true }
+    name: { type: string(255), notnull: true }
+
+Supplier:
+  columns:
+    id: {type: integer(4), primary: true, autoincrement: true }
+    name: { type: string(255), notnull: true }
+    address: { type: string(255) }
+    email: { type: string(255) }
+    phone: { type: string(255) }
+
+#service:
+#  columns:
+#    name: { type: string(255), notnull: true }
+
+#servicieSupplier:
+#  service_id: { type: integer, primary: true }
+#  supplier_id: { type: integer, primary: true }
+
+Invoice:
+  columns:
+    id: {type: integer(4), primary: true, autoincrement: true }
+    number: { type: integer, notnull: true }
+    value: { type: integer, notnull: true }
+    date: { type: date }
+    supplier_id: { type: integer(4), notnull: true }
+    building_id: { type: integer(4), notnull: true }
+#    receipt_id: { type: integer }
+    payment_date_id: { type: integer(4), notnull: true }
+    paid: { type: boolean, notnull: true, default: 0 }
+  relations:
+    Building:
+      class: Building
+      local: building_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: CASCADE
+    PaymentDate:
+      class: PaymentDate
+      local: payment_date_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: CASCADE
+ #   Supplier:
+ #     class: Supplier
+ #     local: supplier_id
+ #     foreign: id
+ #     type: one
+ #     foreignType: many
+ #     onDelete: CASCADE
+ #     onUpdate: CASCADE
+
+PaymentDate:
+  columns:
+    id: {type: integer(4), primary: true, autoincrement: true }
+    date: { type: date, notnull: true }
+    supplier_id: { type:integer(4), notnull: true, default: 0 }
+    paid: { type: boolean, notnull: true }
+  indexes:
+    supplierDate:  { fields: [date, supplier_id], type: unique }
+  relations:
+    Supplier:
+      local: supplier_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: CASCADE
+      onUpdate: CASCADE
+    Invoices:
+      type: many
+      class: Invoice
+      local: id
+      foreign: payment_date_id
+
+#receipt:
+#  columns:
+#    number: { type: integer, notnull: true }
+#    date: { type: date , notnull: true }
+#    value: { type: integer, notnull: true }

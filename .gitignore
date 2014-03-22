@@ -1,0 +1,31 @@
+/backups/
+/cache/
+/log/
+/web/sf/
+/web/uploads/
+/data/a_writable/
+/data/sql/
+/config/databases.yml
+/web/sf*
+/web/images/images/*
+
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+#apache logs
+error.log
+access.log
+ssl-error.log
+ssl-access.log
+.vagrant

@@ -1,0 +1,55 @@
+body {background-color: rgba(241,241,241,0.8)}
+.glyphicon {  text-shadow: 0 2px 1px rgba(0, 0, 130, 0.5);}
+.red {color: #e9594d;}
+a:hover.red {color: #bf583d;}
+h1, h2 {color:rgb(90, 111, 150);}
+h3, h4, h5, h6 {color: #f1f1f1;}
+
+.panel-default {
+  border-color: rgb(159, 177, 212);
+}
+
+.panel-default > .panel-heading {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.56, rgb(100, 120, 158)),
+    color-stop(0.8, rgb(90, 111, 150))
+  );
+  background-image: -o-linear-gradient(bottom, rgb(100, 120, 158) 56%, rgb(90, 111, 150) 80%);
+  background-image: -moz-linear-gradient(bottom, rgb(100, 120, 158) 56%, rgb(90, 111, 150) 80%);
+  background-image: -webkit-linear-gradient(bottom, rgb(100, 120, 158) 56%, rgb(90, 111, 150) 80%);
+  background-image: -ms-linear-gradient(bottom, rgb(100, 120, 158) 56%, rgb(90, 111, 150) 80%);
+  background-image: linear-gradient(to bottom, rgb(100, 120, 158) 56%, rgb(90, 111, 150) 80%);
+}
+
+.panel-heading {
+  padding: 5px 8px;
+}
+
+.panel-heading h1, .panel-heading h2, .panel-heading h3, .panel-heading h4, .panel-heading h5, .panel-heading h6 {
+  height: 20px;
+  margin: 0;
+  text-shadow: 0 2px 1px rgba(70, 40, 130, 0.8);
+}
+
+
+.panel .table tr:last-child {
+  background-color: rgb(230, 230, 230);
+  font-weight: bold;
+/*  border-radius: 0 0 5px 5px;*/
+}
+
+.panel .table tr td {
+  padding: 5px 8px;
+}
+
+.panel .table tr:last-child td {
+
+}
+
+.form-horizontal {
+  padding: 10px 15px;
+}
+h3 {color: red;}

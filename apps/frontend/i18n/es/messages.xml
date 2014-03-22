@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="es" datatype="plaintext" original="messages" date="2014-03-07T21:08:11Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>La Fecha de Pago no existe )(%s).</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Editar Fecha de Pago</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Agregar Nueva Fecha de Pago</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

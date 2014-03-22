@@ -1,0 +1,65 @@
+#data/fixtures/invoice.yml
+Invoice:
+  cervellon_004455:
+    number: 004455
+    value: 354
+    supplier_id: 1
+    Building: cordoba_996
+    PaymentDate: 2014_03_24_cervellon
+    paid: 0
+  cervellon_004456:
+    number: 004456
+    value: 210
+    supplier_id: 1
+    Building: gallo_1455
+    PaymentDate: 2014_03_24_cervellon
+    paid: 0
+  cervellon_004457:
+    number: 004457
+    value: 1500
+    supplier_id: 1
+    Building: paraguay_3260
+    PaymentDate: 2014_03_24_cervellon
+    paid: 0
+  castillo_000315:
+    number: 000315
+    value: 5000
+    supplier_id: 2
+    Building: cordoba_996
+    PaymentDate: 2014_03_24_castillo
+    paid: 0
+  castillo_000316:
+    number: 000316
+    value: 15000
+    supplier_id: 2
+    Building: gallo_1455
+    PaymentDate: 2014_03_24_castillo
+    paid: 0
+  castillo_000317:
+    number: 000317
+    value: 3000
+    supplier_id: 2
+    Building: cordoba_996
+    PaymentDate: 2014_03_24_castillo
+    paid: 0
+  castillo_000318:
+    number: 000318
+    value: 140
+    supplier_id: 2
+    Building: paraguay_3260
+    PaymentDate: 2014_03_24_castillo
+    paid: 0
+  deg_0022318:
+    number: 0022318
+    value: 140
+    supplier_id: 3
+    Building: paraguay_3260
+    PaymentDate: 2014_03_25_deg
+    paid: 0
+  deg_0022319:
+    number: 0022319
+    value: 140
+    supplier_id: 3
+    Building: gallo_1455
+    PaymentDate: 2014_03_25_deg
+    paid: 0

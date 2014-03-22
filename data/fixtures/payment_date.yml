@@ -1,0 +1,18 @@
+#data/fixtures/payment_date.yml
+PaymentDate:
+  2014_03_24_cervellon:
+    date: '2014-03-24'
+    Supplier: cervellon_alfonso
+    paid: 0
+  2014_03_24_castillo:
+    date: '2014-03-24'
+    Supplier: castillo_raul
+    paid: 0
+  2014_03_25_electro_palermo:
+    date: '2014-03-25'
+    Supplier: electro_palermo
+    paid: 0
+  2014_03_25_deg:
+    date: '2014-03-25'
+    Supplier: deg
+    paid: 0

@@ -1,0 +1,10 @@
+#data/fixtures/supplier.yml
+Supplier:
+  cervellon_alfonso:
+    name: Cervellon Alfonso
+  castillo_raul:
+    name: Castillo Raul
+  electro_palermo:
+    name: Electro Palermo
+  deg:
+    name: D.E.G.
