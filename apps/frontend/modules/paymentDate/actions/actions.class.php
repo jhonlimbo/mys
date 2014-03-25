@@ -4,7 +4,6 @@ class paymentDateActions extends sfActions{
 
   public function executeIndex(sfWebRequest $request){
     $this->paymentDates = Doctrine_Core::getTable('PaymentDate')->getOrdered();
-    $retrieveCalendarData = processCalendar($this);
     //Pager
     //$this->pager = new sfDoctrinePager(
     //  'PaymentDate',
@@ -19,10 +18,6 @@ class paymentDateActions extends sfActions{
     $this->form = new PaymentDateForm($paymentDate);
 
     $this->form->addNewFields(0);
-
-  }
-
-  public function processCalendar(sfWebRequest $request){
 
   }
 

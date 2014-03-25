@@ -40,14 +40,14 @@ if(!String.prototype.formatNum) {
 
 	var defaults = {
 		// Width of the calendar
-		width:              '100%',
+		width:              '95%',
 		// Initial view (can be 'month', 'week', 'day')
 		view:               'month',
 		// Initial date. No matter month, week or day this will be a starting point. Can be 'now' or a date in format 'yyyy-mm-dd'
 		day:                'now',
 		// Day Start time and end time with time intervals. Time split 10, 15 or 30.
-		time_start:         '06:00',
-		time_end:           '22:00',
+		time_start:         '13:00',
+		time_end:           '18:00',
 		time_split:         '30',
 		// Source of events data. It can be one of the following:
 		// - URL to return JSON list of events in special format.
@@ -57,7 +57,7 @@ if(!String.prototype.formatNum) {
 		// - A function that received the start and end date, and that
 		//   returns an array of events (as described in events property description)
 		// - An array containing the events
-		events_source:      '/js/events.json.php',
+		events_source:      '',
 		// Path to templates should end with slash /. It can be as relative
 		// /component/bootstrap-calendar/tmpls/
 		// or absolute
@@ -100,7 +100,7 @@ if(!String.prototype.formatNum) {
 				enable: 1
 			},
 			day:   {
-				enable: 1
+				enable: 0
 			}
 		},
 		merge_holidays:     false,
@@ -361,7 +361,7 @@ if(!String.prototype.formatNum) {
 		this.setLanguage(this.options.language);
 		this.context = context;
 
-		context.css('width', this.options.width).addClass('cal-context');
+		context.css('width', this.options.width).addClass('cal-context pull-right');
 
 		this.view();
 		return this;

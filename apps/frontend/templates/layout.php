@@ -18,7 +18,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body <?php if (!include_slot('body_class')): ?>id="default"<?php endif; ?>>
     <div class="content-wrapper container-fluid">
     <?php echo $sf_content ?>
     </div>

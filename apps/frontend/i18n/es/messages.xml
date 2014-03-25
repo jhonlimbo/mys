@@ -5,16 +5,36 @@
     <header/>
     <body>
       <trans-unit id="1">
+        <source>Year</source>
+        <target>Año</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Month</source>
+        <target>Mes</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Week</source>
+        <target>Semana</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Today</source>
+        <target>Hoy</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Next</source>
+        <target>Sig</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Agregar Nueva Fecha de Pago</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="7">
         <source>La Fecha de Pago no existe )(%s).</source>
         <target/>
       </trans-unit>
-      <trans-unit id="2">
-        <source>Editar Fecha de Pago</source>
-        <target/>
-      </trans-unit>
-      <trans-unit id="3">
-        <source>Agregar Nueva Fecha de Pago</source>
-        <target/>
+      <trans-unit id="8">
+        <source>Invoice</source>
+        <target>Factura</target>
       </trans-unit>
     </body>
   </file>

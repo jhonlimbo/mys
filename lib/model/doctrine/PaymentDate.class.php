@@ -16,5 +16,28 @@ class PaymentDate extends BasePaymentDate {
     parent::assignDefaultValues($overwrite);
     $this->date = date('Y-m-d');
   }
-   
+
+  public function save(Doctrine_Connection $conn = null) {
+    sfApplicationConfiguration::getActive()->loadHelpers(array('Url'));
+    $result = parent::save($conn);
+    $paymentDates = Doctrine_Core::getTable('PaymentDate')->getOrdered();
+    $out = array();
+    foreach ($paymentDates as $eventJson) {
+      $out[] = array(
+          'id' => $eventJson->getId(),
+          'title' => $eventJson->getSupplier()->name,
+          'url' => url_for('paymentDate/edit?id='.$eventJson->getId()),
+          'class' => 'event-important',
+          'start' => strtotime($eventJson->getDate()) . '000',
+          'end' => strtotime($eventJson->getDate()) . '000'
+      );
+    }
+
+//TODO: Only add the last paymentDate on event.json.php. Not write all file again.
+    $ourFileName = sfConfig::get('sf_web_dir') . "/events.json.php";
+    $ourFileHandle = fopen($ourFileName, 'w') or die("can't open file");
+    fputs($ourFileHandle ,json_encode(array('success' => 1, 'result' => $out)));
+    fclose($ourFileHandle);
+    return $result;
+  }
 }

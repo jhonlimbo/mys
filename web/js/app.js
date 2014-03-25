@@ -7,7 +7,8 @@
 		view: 'month',
 		tmpl_path: '/tmpls/',
 		tmpl_cache: false,
-		day: '2013-03-12',
+		day: 'now',
+		language: 'es-AR',
 		onAfterEventsLoad: function(events) {
 			if(!events) {
 				return;

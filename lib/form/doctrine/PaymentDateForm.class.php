@@ -10,7 +10,7 @@
  */
 class PaymentDateForm extends BasePaymentDateForm {
   public function configure() {
-    unset($this['paid']);
+//    unset($this['paid']);
     $this->embedRelation('Invoices');
   }
 

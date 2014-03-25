@@ -49,7 +49,62 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 
 }
 
-.form-horizontal {
-  padding: 10px 15px;
+.col-md-3 .form-horizontal {
+  padding: 25px 15px;
 }
-h3 {color: red;}
+
+.form-horizontal .form-group .col-md-4, 
+.form-horizontal .form-group .col-md-5 {padding-right: 0;}
+.form-horizontal .form-group .col-md-7,
+.form-horizontal .form-group .col-md-8 {text-align: right;}
+.form-horizontal .form-group .col-md-8 select {float: right;}
+
+/*********************/
+/**PAYMENTDATE-INDEX**/
+/*********************/
+.paymentdate-index .page-header {
+  border-bottom: 0;
+}
+
+.paymentdate-index .page-header,
+.paymentdate-index .panel-default {
+  margin-top: 20px;
+}
+
+/*********************/
+/******CALENDAR*******/
+/*********************/
+#calendar {}
+
+#calendar .events-list {
+  max-height: none;
+  padding-left: 5px;
+  top: 30px;
+  width: 100%;
+}
+
+#calendar span[data-cal-date] {
+  color: #000;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.error_list,
+.date-title,
+#calendar .cal-day-weekend span[data-cal-date],
+#calendar .cal-day-holiday span[data-cal-date] {
+  color: #8B0000 !important;
+}
+
+
+#calendar .events-list .event {
+  background: none repeat scroll 0 center rgba(0, 0, 0, 0);
+  box-shadow: none;
+  border: 0 none;
+  clear: both;
+  font-size: 11px;
+  height: 12px;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  width: 100%;
+}

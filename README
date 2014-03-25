@@ -1,0 +1,24 @@
+# Para migrar la db:
+ 1. #modificar el schema.yml
+ 2. php symfony doctrine:generate-migrations-diff
+ 3. php symfony doctrine:migrate
+ 4. php symfony doctrine:build --all-classes
+ 
+TODO:
+- Resolver carga de supplier_id en invoice. (Ok)
+- Mostrar proveedor en indexSuccess (Ok)
+-
+
+BUGS
+====
+- lib/model/PaymentDate.class.php public function save() => If doctrine:data-load this function throws an error in console => 
+  "The "default" context does not exist." For data-load need to delete function
+
+
+Calendar
+========
+1000  1 seg
+60000 1 min
+3600000 1 H
+86400000  1 D
+31536000000 1 Y

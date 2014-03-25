@@ -8,3 +8,5 @@ Supplier:
     name: Electro Palermo
   deg:
     name: D.E.G.
+  mantenimiento:
+    name: Mantenimiento y Servicio

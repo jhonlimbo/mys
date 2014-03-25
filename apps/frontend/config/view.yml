@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [bootstrap.min.css,bootstrap-theme.min.css,calendar.min.css,main.css]
 
-  javascripts:    [jquery.min.js,underscore-min.js,bootstrap.min.js,jstz.min.js,es-ES.js,payment.date.form.js]
+  javascripts:    [jquery.min.js,bootstrap.min.js,underscore-min.js,jstz.min.js,/js/language/es-AR.js,payment.date.form.js]
 
   has_layout:     true
   layout:         layout
