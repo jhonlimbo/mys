@@ -1,0 +1,32 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Building
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          building
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        name: { label: Dirección }
+
+      list:
+        title: Listado de Edificios
+        display: [=name]
+        sort: [name, asc]
+        max_per_page: 10
+
+      filter:  ~
+      form:    ~
+
+      edit:
+        title: Editando Edificio %%name%%
+
+      new:
+        title: Nuevo Edificio

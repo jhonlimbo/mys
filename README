@@ -4,10 +4,31 @@
  3. php symfony doctrine:migrate
  4. php symfony doctrine:build --all-classes
  
+# Generar Backend:
+ 1. php symfony generate:app backend
+ 2. php symfony doctrine:generate-admin backend nombreClase --module=nombre_modulo
+ 3. php symfony plugin:publish-assets
+
 TODO:
 - Resolver carga de supplier_id en invoice. (Ok)
 - Mostrar proveedor en indexSuccess (Ok)
--
+- Admin generator edificios, proveedor (OK)
+- Validar fecha de pago proveedor dentro del mismo mes.
+- Eliminar una factura (frontend)
+- Eliminar una fecha de pago (frontend)
+- Linkear entre apps -> Cross application links
+- Reportes:
+  Ver si se pueden generar los reportes a partir del calendar
+  
+
+- Validar dia de semana o fin de semana
+  function isWeekend($date) {
+      return (date('N', strtotime($date)) >= 6);
+  }
+  var_dump(isWeekend('2014-03-21'));
+
+
+
 
 BUGS
 ====

@@ -120,6 +120,13 @@
 
 </script>
 
+<?php /*
+function isWeekend($date) {
+    return (date('N', strtotime($date)) >= 6);
+}
+var_dump(isWeekend('2014-03-21'));
+ */
 
+?>
 
 
