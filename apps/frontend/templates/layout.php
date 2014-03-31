@@ -19,6 +19,7 @@
     <![endif]-->
   </head>
   <body <?php if (!include_slot('body_class')): ?>id="default"<?php endif; ?>>
+    <? include_partial('global/header') ?>
     <div class="content-wrapper container-fluid">
     <?php echo $sf_content ?>
     </div>

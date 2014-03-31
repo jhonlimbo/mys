@@ -20,7 +20,8 @@ generator:
         phone: { label: Teléfono }
 
       list:
-        title: Listado de Proveedores
+        #title: Listado de Proveedores
+        title: ''
         display: [=name, address, email, phone]
         sort: [name, asc]
         max_per_page: 10
@@ -29,6 +30,8 @@ generator:
         display: [name, email, phone]
       form:    ~
       edit:
-        title: Editando Proveedor %%name%%
+        #title: Editando Proveedor %%name%%
+        title: ''
       new:
-        title: Nuevo Proveedor
+        #title: Nuevo Proveedor
+        title: ''

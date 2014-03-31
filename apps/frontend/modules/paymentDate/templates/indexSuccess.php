@@ -1,15 +1,10 @@
 <?php slot('body_class') ?>class="<?php echo strtolower($sf_params->get('module')) . "-" . $sf_params->get('action');?>"<?php end_slot(); ?>
-
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="text-center"><?php echo __('Agenda de Pago a Proveedores')?></h2>
-    </div>
-  </div>
-
+<?php slot('sectionTitle') ?><?php echo __('Agenda de Pagos a Proveedores')?><?php end_slot(); ?>
   <div class="row">
     <div class="col-md-9">
-      <div class="page-header">
-        <div class="pull-right form-inline">
+      <div class="page-header pull-right">
+        <h3 class="date-title"></h3>        
+        <div class="form-inline pull-right">
           <div class="btn-group">
             <button class="btn btn-primary" data-calendar-nav="prev"><< <?php echo __('Prev')?></button>
             <button class="btn btn-default" data-calendar-nav="today"><?php echo __('Today')?></button>
@@ -22,8 +17,6 @@
             <!--<button class="btn btn-warning" data-calendar-view="day">Day</button>-->
           </div>
         </div>
-
-        <h3 class="date-title"></h3>
       </div>
       <div id="calendar"></div>
     </div>
@@ -128,5 +121,3 @@ var_dump(isWeekend('2014-03-21'));
  */
 
 ?>
-
-

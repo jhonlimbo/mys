@@ -10,22 +10,35 @@
  3. php symfony plugin:publish-assets
 
 TODO:
-- Resolver carga de supplier_id en invoice. (Ok)
-- Mostrar proveedor en indexSuccess (Ok)
+- Resolver carga de supplier_id en invoice. (OK)
+- Mostrar proveedor en indexSuccess (OK)
 - Admin generator edificios, proveedor (OK)
-- Validar fecha de pago proveedor dentro del mismo mes.
+- Ver como queda el calendario sin fines de semana para ganar espacio en cada cuadro. (OK)
+- Linkear entre apps -> Cross application (OK) Ver hacerlo unificado (OK)
+
 - Eliminar una factura (frontend)
 - Eliminar una fecha de pago (frontend)
-- Linkear entre apps -> Cross application links
-- Reportes:
+- En el popup de month la fecha del calendar agregar importes totales para proveedor y fecha
+- Reportes
   Ver si se pueden generar los reportes a partir del calendar
-  
 
+
+VALIDACIONES
+============
+- Validar fecha de pago proveedor dentro del mismo mes. 
 - Validar dia de semana o fin de semana
   function isWeekend($date) {
       return (date('N', strtotime($date)) >= 6);
   }
   var_dump(isWeekend('2014-03-21'));
+
+
+CSS
+===
+- CSS para edicion de fecha de pago. Campos de cada factura este en un sola linea.
+- CSS Resolver estilos de formulario al agregar una factura
+- Corregir estilo al hacer click en un dropdown o submenu de dropdown
+- Fade in fade out navbar
 
 
 

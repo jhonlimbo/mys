@@ -12,6 +12,24 @@ class PaymentDateForm extends BasePaymentDateForm {
   public function configure() {
 //    unset($this['paid']);
     $this->embedRelation('Invoices');
+    //if (1==1)
+    //{
+    //  throw new InvalidArgumentException('Este proveedor ya tiene una fecha de pago este mes.');
+    //}
+
+    //var_dump($this->paymentDate->date);
+
+    $this->validatorSchema->setPostValidator(
+       new sfValidatorCallback(array('callback' => array($this, 'isWeekend')))
+      );
+  }
+  public function isWeekend($validator, $values) {
+    $caca = (date('N', strtotime($values['date'])) >= 6);
+     if($caca ==  true){
+      $error = new sfValidatorError($validator, 'La fecha de pago debe ser un dia laboral');
+      throw new sfValidatorErrorSchema($validator, array('date' => $error));
+    }
+   return $values;
   }
 
   public function addNewFields($number){

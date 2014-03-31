@@ -10,6 +10,8 @@
     <?php include_javascripts() ?>
   </head>
   <body>
+    <?//php slot('sectionTitle') ?><?//php echo __('Titulo Seccion Backend')?><?//php end_slot(); ?>
+    <?php include sfConfig::get('masterTemplateUri') ?>
     <?php echo $sf_content ?>
   </body>
 </html>

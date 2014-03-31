@@ -1,8 +1,10 @@
 generator:
-  class: sfDoctrineGenerator
+  class: mpRealtyAdminDoctrineGenerator
+#  class: sfDoctrineGenerator
   param:
     model_class:           Building
-    theme:                 admin
+#    theme:                 admin
+    theme:                 mpReality
     non_verbose_templates: true
     with_show:             false
     singular:              ~
@@ -17,7 +19,8 @@ generator:
         name: { label: Dirección }
 
       list:
-        title: Listado de Edificios
+        #title: Listado de Edificios
+        title: ''
         display: [=name]
         sort: [name, asc]
         max_per_page: 10
@@ -26,7 +29,9 @@ generator:
       form:    ~
 
       edit:
-        title: Editando Edificio %%name%%
+        #title: Editando Edificio %%name%%
+        title: ''
 
       new:
-        title: Nuevo Edificio
+        #title: Nuevo Edificio
+        title: ''

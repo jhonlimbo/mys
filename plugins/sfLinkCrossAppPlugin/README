@@ -1,0 +1,32 @@
+Maintainer: dendie sanjaya <dendie_sanjaya@yahoo.com>
+Version 1.2.8 stable
+
+#sfLinkCrossAppPlugin
+
+#What: 
+    This plugin for resolve link cross application in symfony 1.1 or 1.2 
+
+#How to install:
+    first you must dowload package sfLinkCrossAppPlugin, second install plugin from local like this:
+ 
+    {{{
+    > php symfony plugin-install file:///your/path/plugin/sfLinkCrossAppPlugin-1.2.8.tgz
+    }}}    
+
+    or 
+
+    {{{
+     > php symfony plugin-install http://plugins.symfony-project.com/sfLinkCrossAppPlugin
+    }}}    
+
+#How to use:
+    {{{
+     <a href="<?php echo sfLinkCrossApp::linkTo('appName','moduleName/actionName') ?>"> LINK TO APP SAMPLE </a>
+    }}} 
+
+    or
+
+    {{{
+     <a href="<?php echo sfLinkCrossApp::linkTo('appName') ?>"> DATA INDUK SISWA LINK TO APP SAMPLE </a> 
+    }}} 
+
