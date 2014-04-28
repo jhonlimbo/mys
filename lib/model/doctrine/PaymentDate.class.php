@@ -7,24 +7,23 @@
  * 
  * @package    MyS
  * @subpackage model
- * @author     Your name here
+ * @author     Ferbal
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 class PaymentDate extends BasePaymentDate {
 
+/*
   public function assignDefaultValues($overwrite = false) {
     parent::assignDefaultValues($overwrite);
-    $this->date = date('Y-m-d');
+    $this->date = date('d-m-Y');
   }
+*/
 
   public function save(Doctrine_Connection $conn = null) {
     sfApplicationConfiguration::getActive()->loadHelpers(array('Url'));
     $result = parent::save($conn);
-    
 
 
-  
-    
 
 
 

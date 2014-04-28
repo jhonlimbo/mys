@@ -48,7 +48,7 @@
         <div class="panel-heading text-center">
           <h4><?php echo __('Nueva Fecha de Pago')?></h4>
         </div>
-        <form class="form-horizontal" action="<?php echo url_for('@submit') ?>" method="post">
+        <form class="form-horizontal" action="<?php echo url_for('@paymentDate') ?>" method="post">
           <?php echo $form->renderHiddenFields() ?>
           <div class="form-group">
             <?php echo $form['supplier_id']->renderLabel(__('Proveedor:'), array('class' => 'col-md-4'))?> 
@@ -57,22 +57,15 @@
               <?php echo $form['supplier_id'] ?>
             </div>
           </div>
-          <div class="form-group">
-            <?php echo $form['date']->renderLabel(__('Fecha de Pago:'), array('class' => 'col-md-5'))?> 
-            <?php echo $form['date']->renderError()?> 
-            <div class="col-md-7">
-              <?php echo $form['date'] ?>
-            </div>
-          </div>
           <div id="invoice-form">
-            <?php if ($form->getObject()->isNew()): ?>
+            <?php if ($form->getObject()->isNew()&& !$form->hasErrors()): ?>
             <script type="text/javascript">newfieldscount = 1;</script>
               <div class="form-group">
                 <?php echo $form['new'][0]['building_id']->renderLabel('Edificio:', array('class' => 'col-md-4')) ?>  <?php echo $form['new'][0]['building_id']->renderError() ?>
                 <div class="col-md-8"><?php echo $form['new'][0]['building_id'] ?></div>
               </div>
               <div class="form-group">
-                <?php echo $form['new'][0]['number']->renderLabel(__('Invoice') . ' Nº:', array('class' => 'col-md-4')) ?>  <?php echo $form['new'][0]['number']->renderError() ?>
+                <?php echo $form['new'][0]['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-4')) ?>  <?php echo $form['new'][0]['number']->renderError() ?>
                 <div class="col-md-8"><?php echo $form['new'][0]['number'] ?></div>
               </div>
               <div class="form-group">
@@ -80,8 +73,60 @@
                 <div class="col-md-8"><?php echo $form['new'][0]['value'] ?></div>
               </div>
             <?php endif ?>
+
+          <?php foreach ($form['Invoices'] as $invoice):?>
+            <div class="form-group">
+              <?php echo $invoice['building_id']->renderLabel(__('Edificio'), array('class' => 'col-md-3')) ?>  <?php echo $invoice['building_id']->renderError() ?>
+              <div class="col-md-9"><?php echo $invoice['building_id'] ?></div>
+            </div>
+            <div class="form-group">
+              <?php echo $invoice['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-3')) ?>  <?php echo $invoice['number']->renderError() ?>
+              <div class="col-md-9"><?php echo $invoice['number'] ?></div>
+            </div>
+            <div class="form-group">
+              <?php echo $invoice['value']->renderLabel(__('Importe:'), array('class' => 'col-md-3')) ?>  <?php echo $invoice['value']->renderError() ?>
+              <div class="col-md-9"><?php echo $invoice['value'] ?></div>
+            </div>
+          <?php endforeach ?>
+          <?php 
+            if(isset($form['new']) && $form->hasErrors()) {
+              foreach($form['new'] as $newForm ){ 
+          ?>
+                <div class="form-group">
+                  <?php echo $newForm['building_id']->renderLabel('Edificio:', array('class' => 'col-md-3')) ?>  <?php echo $newForm['building_id']->renderError() ?>
+                  <div class="col-md-9"><?php echo $newForm['building_id'] ?></div>
+                </div>
+                <div class="form-group">
+                  <?php echo $newForm['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-3')) ?>  <?php echo $newForm['number']->renderError() ?>
+                  <div class="col-md-9"><?php echo $newForm['number'] ?></div>
+                </div>
+                <div class="form-group">
+                  <?php echo $newForm['value']->renderLabel(__('Importe:'), array('class' => 'col-md-3')) ?>  <?php echo $newForm['value']->renderError() ?>
+                  <div class="col-md-9"><?php echo $newForm['value'] ?></div>
+                </div>
+          <?php
+
+              }  
+            }
+          ?>
           </div>
+
+
+
+
+
+
+
+
+
           <a id="addinvoice" href="#"><?php echo __('Agregar Factura')?></a>
+          <div class="form-group">
+            <?php echo $form['date']->renderLabel(__('Fecha de Pago:'), array('class' => 'col-md-5'))?> 
+            <?php echo $form['date']->renderError()?> 
+            <div class="col-md-7">
+              <?php echo $form['date'] ?>
+            </div>
+          </div>          
           <input class="pull-right" type="submit" value="<?php echo __('Guardar')?>" />
         </form>
       </div>
@@ -104,20 +149,14 @@
     </div>
   </div>
 
-
   <script type="text/javascript" src="/js/calendar.js"></script>
   <script type="text/javascript" src="/js/app.js"></script>
+  <script type="text/javascript">
+    $( "#payment_date_date" ).datepicker({
+      beforeShowDay: $.datepicker.noWeekends,
+      duration: "slow",
+      minDate: 0,
+      maxDate: "+2m"
+    });
 
-<script type="text/javascript">
-
-
-</script>
-
-<?php /*
-function isWeekend($date) {
-    return (date('N', strtotime($date)) >= 6);
-}
-var_dump(isWeekend('2014-03-21'));
- */
-
-?>
+  </script>

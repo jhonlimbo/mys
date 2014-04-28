@@ -36,6 +36,10 @@ abstract class BaseInvoiceForm extends BaseFormDoctrine
       'paid'            => new sfValidatorBoolean(array('required' => false)),
     ));
 
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Invoice', 'column' => array('number', 'supplier_id')))
+    );
+
     $this->widgetSchema->setNameFormat('invoice[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

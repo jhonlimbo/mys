@@ -14,5 +14,12 @@ class InvoiceForm extends BaseInvoiceForm {
     unset($this['payment_date_id']);
     unset($this['supplier_id']);
     unset($this['paid']);
+
+    $this->widgetSchema['building_id'] = new sfWidgetFormDoctrineChoice(array(
+          'model' => $this->getRelatedModelName('Building'), 
+          'add_empty' => false, 
+          'order_by' => array('name', 'asc')
+         ));
+  
   }
 }

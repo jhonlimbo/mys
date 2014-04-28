@@ -1,6 +1,12 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+
+paymentDate:
+  class:   sfDoctrineRouteCollection
+  options: 
+    model: PaymentDate
+
 new:
   url: /new
   param: { module: paymentDate, action: new }
@@ -13,9 +19,9 @@ edit:
   url: /edit
   param: { module: paymentDate, action: edit }
 
-submit:
-  url: /submit
-  param: { module: paymentDate, action: submit }
+#submit:
+#  url: /submit
+#  param: { module: paymentDate, action: submit }
 
 # default rules
 homepage:

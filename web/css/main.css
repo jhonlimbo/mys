@@ -156,35 +156,37 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 /*********************/
 /**PAYMENTDATE-INDEX**/
 /*********************/
-.paymentdate-index .page-header {
+
+/*********************/
+/******CALENDAR*******/
+/*********************/
+.page-header {
   border-bottom: 0;
   margin-bottom: 5px;
   padding: 0;
   width: 95%;
 }
 
-.paymentdate-index .page-header,
-.paymentdate-index .panel-default {
+.page-header,
+.panel-default {
   margin-top: 31px;
 }
 
-.paymentdate-index .page-header .date-title, 
-.paymentdate-index .page-header .form-inline {
+.page-header .date-title, 
+.page-header .form-inline {
   display: inline-block;
 }
 
-.paymentdate-index .page-header .date-title {
+.page-header .date-title {
   margin: 0;
 }
 
-.paymentdate-index .page-header .form-inline {}
+.page-header .form-inline {}
 
-.paymentdate-index .page-header .btn {
+.page-header .btn {
   padding: 0 10px;
 }
-/*********************/
-/******CALENDAR*******/
-/*********************/
+
 #calendar {}
 
 #calendar .events-list {
@@ -240,11 +242,10 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 }
 
 .cal-week-box .cal-column,
-.cal-month-box .cal-row-fluid .cal-cell1, 
+.cal-row-fluid .cal-cell1, 
 .cal-row-fluid .cal-cell1.cell-month {
   width: 20%;
 }
-
 
 .cal-row-fluid .cal-cell1 .cal-month-day {
   height: 110px;
@@ -271,3 +272,8 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 .cal-month-box #cal-slide-tick.tick-day5{left:90%}
 .cal-month-box #cal-slide-tick.tick-day6{display: none;}
 .cal-month-box #cal-slide-tick.tick-day7{display: none;}
+
+.cal-week-box .cal-offset1, .cal-row-fluid .cal-offset1, .cal-row-fluid .cal-offset1:first-child {margin-left: 20%;}
+.cal-week-box .cal-offset2, .cal-row-fluid .cal-offset2, .cal-row-fluid .cal-offset2:first-child {margin-left: 40%;}
+.cal-week-box .cal-offset3, .cal-row-fluid .cal-offset3, .cal-row-fluid .cal-offset3:first-child {margin-left: 60%;}
+.cal-week-box .cal-offset4, .cal-row-fluid .cal-offset4, .cal-row-fluid .cal-offset4:first-child {margin-left: 80%;}

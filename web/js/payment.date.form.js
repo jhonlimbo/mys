@@ -1,5 +1,5 @@
 /* web/js/payment-date-form.js */
-newfieldscount = 0;
+newfieldscount = 50;
 
 function addNewField(num){
   return $.ajax({

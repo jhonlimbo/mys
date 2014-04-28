@@ -85,6 +85,15 @@ abstract class BaseInvoice extends sfDoctrineRecord
              'default' => 0,
              ));
 
+
+        $this->index('numberSupplier', array(
+             'fields' => 
+             array(
+              0 => 'number',
+              1 => 'supplier_id',
+             ),
+             'type' => 'unique',
+             ));
         $this->option('type', 'INNODB');
     }
 

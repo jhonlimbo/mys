@@ -23,4 +23,14 @@ class PaymentDateTable extends Doctrine_Table
 
       return $q->execute();
     }
+
+    public function getSupplierXdate($supplier) {
+      $q = Doctrine_Query::create()
+        ->from('PaymentDate p')
+        ->where('p.supplier_id = ?', $supplier);
+
+      return $q->execute();
+    }
+
+
 }

@@ -35,6 +35,8 @@ Invoice:
 #    receipt_id: { type: integer }
     payment_date_id: { type: integer(4), notnull: true }
     paid: { type: boolean, notnull: true, default: 0 }
+  indexes:
+    numberSupplier:  { fields: [number, supplier_id], type: unique }
   relations:
     Building:
       class: Building

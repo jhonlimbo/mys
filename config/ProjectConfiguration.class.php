@@ -9,8 +9,9 @@ class ProjectConfiguration extends sfProjectConfiguration {
       'sfDoctrinePlugin', 
       'sfLinkCrossAppPlugin',
       'mpRealityAdminPlugin',
-      'sfFormExtraPlugin'
+      'sfJQueryUIPlugin'
     ));
     sfConfig::set('masterTemplateUri', sprintf('%s/apps/frontend/templates/_header.php', sfConfig::get('sf_root_dir')));
+
   }
 }

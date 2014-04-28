@@ -1,3 +1,65 @@
+TODO:
+- Resolver carga de supplier_id en invoice. (OK)
+- Mostrar proveedor en indexSuccess (OK)
+- Admin generator edificios, proveedor (OK)
+- Ver como queda el calendario sin fines de semana para ganar espacio en cada cuadro. (OK)
+- Linkear entre apps -> Cross application (OK) Ver hacerlo unificado (OK)
+- Agregar datepicker para paymentDateForm fecha input de pago (OK)
+
+- Si se agregan facturas a un proveedor y hay error, se pierden esos datos. (OK) controlar bien todas las validaciones
+- Eliminar una factura (frontend)
+- Eliminar una fecha de pago (frontend)
+- En el popup de month la fecha del calendar agregar importes totales para proveedor y fecha
+- Al editar una fecha de pago, si se elige fin de semana tira error.
+- En edicion de fecha de pago hacer que el select de proveedor sea un input read only.
+
+- Si, cuando hay error se agrega una factura, esa nueva factura pisa la primer factura. si se agregan 2 pisan las 2 primeras y asi. 
+  Al hacer submit y agregar una factura el indice comienza desde cero. Dejo harcodeado newfieldscount en 50 (payment-date-form.js) para no pisar las facturas anteriores.
+- Mostrar ordenados los options de proveedor y edificio.
+- Validar duplicado de facturas. Evaluar respecto a mismo numero pero diferente año
+
+- Reportes
+  Ver si se pueden generar los reportes a partir del calendar
+
+
+
+VALIDACIONES
+============
+- Validar fecha de pago proveedor dentro del mismo mes.(OK)
+- Validar dia de semana o fin de semana (OK)
+
+
+CSS
+===
+- CSS para edicion de fecha de pago. Campos de cada factura este en un sola linea. 
+- CSS Resolver estilos de formulario al agregar una factura (OK)
+- Corregir estilo al hacer click en un dropdown o submenu de dropdown
+- Fade in fade out navbar
+- Dar estilo al calendario
+- CSS para vista de semana en calendario
+
+
+BUGS
+====
+- lib/model/PaymentDate.class.php public function save() => If doctrine:data-load this function throws an error in console => 
+  "The "default" context does not exist." For data-load need to delete function
+
+- Linea 106 original en plugins/sfFormExtraPlugin/lib/widget/sfWidgetFormJQueryDate
+    jQuery("#%s option").attr("disabled", "");
+
+A TENER EN CUENTA
+=================
+- Factura con fecha de pago, no abonada y solicitada nuevamente
+
+
+Calendar
+========
+1000  1 seg
+60000 1 min
+3600000 1 H
+86400000  1 D
+31536000000 1 Y
+
 # Para migrar la db:
  1. #modificar el schema.yml
  2. php symfony doctrine:generate-migrations-diff
@@ -8,51 +70,3 @@
  1. php symfony generate:app backend
  2. php symfony doctrine:generate-admin backend nombreClase --module=nombre_modulo
  3. php symfony plugin:publish-assets
-
-TODO:
-- Resolver carga de supplier_id en invoice. (OK)
-- Mostrar proveedor en indexSuccess (OK)
-- Admin generator edificios, proveedor (OK)
-- Ver como queda el calendario sin fines de semana para ganar espacio en cada cuadro. (OK)
-- Linkear entre apps -> Cross application (OK) Ver hacerlo unificado (OK)
-
-- Eliminar una factura (frontend)
-- Eliminar una fecha de pago (frontend)
-- En el popup de month la fecha del calendar agregar importes totales para proveedor y fecha
-- Reportes
-  Ver si se pueden generar los reportes a partir del calendar
-
-
-VALIDACIONES
-============
-- Validar fecha de pago proveedor dentro del mismo mes. 
-- Validar dia de semana o fin de semana
-  function isWeekend($date) {
-      return (date('N', strtotime($date)) >= 6);
-  }
-  var_dump(isWeekend('2014-03-21'));
-
-
-CSS
-===
-- CSS para edicion de fecha de pago. Campos de cada factura este en un sola linea.
-- CSS Resolver estilos de formulario al agregar una factura
-- Corregir estilo al hacer click en un dropdown o submenu de dropdown
-- Fade in fade out navbar
-
-
-
-
-BUGS
-====
-- lib/model/PaymentDate.class.php public function save() => If doctrine:data-load this function throws an error in console => 
-  "The "default" context does not exist." For data-load need to delete function
-
-
-Calendar
-========
-1000  1 seg
-60000 1 min
-3600000 1 H
-86400000  1 D
-31536000000 1 Y

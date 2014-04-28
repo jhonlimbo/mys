@@ -3,6 +3,8 @@
 class paymentDateActions extends sfActions{
 
   public function executeIndex(sfWebRequest $request){
+
+    var_dump($request->getParameterHolder()->getAll());
     $this->paymentDates = Doctrine_Core::getTable('PaymentDate')->getOrdered();
     //Pager
     //$this->pager = new sfDoctrinePager(
@@ -27,21 +29,55 @@ class paymentDateActions extends sfActions{
 
   public function executeEdit(sfWebRequest $request){
     #TODO: translate logs
+    var_dump($request->getParameterHolder()->getAll());
     $this->forward404Unless($paymentDate = Doctrine::getTable('PaymentDate')->find(array($request->getParameter('id'))), sprintf('La Fecha de Pago no existe (%s).', $request->getParameter('id')));
     $this->form = new PaymentDateForm($paymentDate);
+    $this->form->addNewFields(0);
+    $this->setTemplate('index');
+
   }
 
-  public function executeSubmit(sfWebRequest $request){
+  public function executeCreate(sfWebRequest $request) {
+    $this->form = new PaymentDateForm();
+//    var_dump($request->getParameterHolder()->getAll());die;
+    $this->processForm($request, $this->form);
+
+  }
+
+  public function executeUpdate(sfWebRequest $request){
+    $this->processForm($request, $this->form);
+    //    $this->form = new PaymentDateForm($this->getRoute()->getObject());
+   // $this->processForm($request, $this->form);
+  }
+
+public function processForm(sfWebRequest $request, sfForm $form) {
     $tainted_values = $request->getParameter('payment_date');
+      //  var_dump($request->getParameterHolder()->getAll());die;
     $paymentDate = Doctrine::getTable('PaymentDate')->find($tainted_values['id']);
+//    $this->form = new PaymentDateForm($paymentDate);
 
-    $this->form = new PaymentDateForm($paymentDate);
+    if ($request->isMethod('post') && $this->form->bindAndSave($tainted_values)) {
+      $this->redirect('homepage');
+    }
 
-    if ($request->isMethod('post') && $this->form->bindAndSave($tainted_values))
-      $this->redirect('@homepage');
+    $this->setTemplate('index');  
+}
 
-    $this->setTemplate('edit');
-  }
+//  public function executeSubmit(sfWebRequest $request){
+//    $tainted_values = $request->getParameter('payment_date');
+//    $paymentDate = Doctrine::getTable('PaymentDate')->find($tainted_values['id']);
+
+//    $this->form = new PaymentDateForm($paymentDate);
+
+//    if ($request->isMethod('post') && $this->form->bindAndSave($tainted_values))
+//      $this->redirect('homepage');
+
+//  Redirect to edit. I'll try not to use it
+//    $this->setTemplate('edit');
+//    Get back to index form
+
+//    $this->setTemplate('index');
+//  }
 
   public function executeAdd(sfWebRequest $request){
     $this->forward404unless($request->isXmlHttpRequest());
