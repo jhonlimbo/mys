@@ -19,6 +19,7 @@ class PaymentDateForm extends BasePaymentDateForm {
 //    $this->widgetSchema['date']= new sfWidgetFormDateJQueryUI(array("change_month" => true, "change_year" => true, 'culture' => $culture));
     $this->widgetSchema['date']= new sfWidgetFormDateJQueryUI();
     $this->widgetSchema['date']->setAttribute('readonly', 'readonly');
+    // Datepicker
     $this->validatorSchema['date'] = new sfValidatorDate(array('date_format' => '~(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4})~', 'date_format_error' => 'dd/mm/YYYY'));
   
     $this->widgetSchema['supplier_id'] = new sfWidgetFormDoctrineChoice(array(
@@ -111,14 +112,15 @@ class PaymentDateForm extends BasePaymentDateForm {
   public function bind(array $taintedValues = null, array $taintedFiles = null){
 
     $new_invoices = new BaseForm();
-    foreach($taintedValues['new'] as $key => $new_invoice){
-      $invoice = new Invoice();
-      $invoice->setPaymentDate($this->getObject());
-      $invoice_form = new InvoiceForm($invoice);
+    if(isset($taintedValues['new'])){
+      foreach($taintedValues['new'] as $key => $new_invoice){
+        $invoice = new Invoice();
+        $invoice->setPaymentDate($this->getObject());
+        $invoice_form = new InvoiceForm($invoice);
 
-      $new_invoices->embedForm($key,$invoice_form);
+        $new_invoices->embedForm($key,$invoice_form);
+      }
     }
-
     $this->embedForm('new',$new_invoices);
 
     parent::bind($taintedValues, $taintedFiles);

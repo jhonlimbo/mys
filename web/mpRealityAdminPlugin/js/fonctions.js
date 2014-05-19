@@ -80,7 +80,7 @@ if ($('#blocFilter').length > 0) {
   function showLoading()
   {
     $.blockUI({
-      message: '<h1><img src="/mpRealityAdminPlugin/images/busy.gif" /> Chargement en cours...</h1>',
+      message: '<h1><img src="/mpRealityAdminPlugin/images/busy.gif" /> Cargando datos...</h1>',
 	  css: {
       border: 'none',
       padding: '8px',

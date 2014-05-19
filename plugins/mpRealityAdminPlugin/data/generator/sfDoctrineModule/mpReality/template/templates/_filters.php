@@ -1,6 +1,6 @@
 [?php use_stylesheets_for_form($form) ?]
 [?php use_javascripts_for_form($form) ?]
-<div id="blocFilter" title="Filtrer">
+<div id="blocFilter" title="Filtrar">
 <div class="sf_admin_filter">
 <div class="sf_admin_filter_content">
 

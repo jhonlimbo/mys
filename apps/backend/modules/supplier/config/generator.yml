@@ -1,8 +1,10 @@
 generator:
-  class: sfDoctrineGenerator
+  class: mpRealtyAdminDoctrineGenerator
+#  class: sfDoctrineGenerator
   param:
     model_class:           Supplier
-    theme:                 admin
+#    theme:                 admin
+    theme:                 mpReality
     non_verbose_templates: true
     with_show:             false
     singular:              ~

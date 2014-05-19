@@ -7,7 +7,7 @@
  *
  * @package    MyS
  * @subpackage form
- * @author     Your name here
+ * @author     Ferbal
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BaseInvoiceForm extends BaseFormDoctrine
@@ -28,7 +28,7 @@ abstract class BaseInvoiceForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'              => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'number'          => new sfValidatorInteger(),
-      'value'           => new sfValidatorInteger(),
+      'value'           => new sfValidatorNumber(),
       'date'            => new sfValidatorDate(array('required' => false)),
       'supplier_id'     => new sfValidatorInteger(),
       'building_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Building'))),

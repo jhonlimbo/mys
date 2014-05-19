@@ -7,7 +7,7 @@
  *
  * @package    MyS
  * @subpackage form
- * @author     Your name here
+ * @author     Ferbal
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
 abstract class BasePaymentDateForm extends BaseFormDoctrine
@@ -18,6 +18,7 @@ abstract class BasePaymentDateForm extends BaseFormDoctrine
       'id'          => new sfWidgetFormInputHidden(),
       'date'        => new sfWidgetFormDate(),
       'supplier_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Supplier'), 'add_empty' => false)),
+      'total_value' => new sfWidgetFormInputText(),
       'paid'        => new sfWidgetFormInputCheckbox(),
     ));
 
@@ -25,6 +26,7 @@ abstract class BasePaymentDateForm extends BaseFormDoctrine
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'date'        => new sfValidatorDate(),
       'supplier_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Supplier'), 'required' => false)),
+      'total_value' => new sfValidatorNumber(array('required' => false)),
       'paid'        => new sfValidatorBoolean(),
     ));
 

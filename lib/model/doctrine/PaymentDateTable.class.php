@@ -32,5 +32,9 @@ class PaymentDateTable extends Doctrine_Table
       return $q->execute();
     }
 
+    public function getTotalXdate($date) {
+
+    }    
+
 
 }

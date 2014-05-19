@@ -7,7 +7,7 @@
  * 
  * @property integer $id
  * @property integer $number
- * @property integer $value
+ * @property decimal $value
  * @property date $date
  * @property integer $supplier_id
  * @property integer $building_id
@@ -18,7 +18,7 @@
  * 
  * @method integer     getId()              Returns the current record's "id" value
  * @method integer     getNumber()          Returns the current record's "number" value
- * @method integer     getValue()           Returns the current record's "value" value
+ * @method decimal     getValue()           Returns the current record's "value" value
  * @method date        getDate()            Returns the current record's "date" value
  * @method integer     getSupplierId()      Returns the current record's "supplier_id" value
  * @method integer     getBuildingId()      Returns the current record's "building_id" value
@@ -39,7 +39,7 @@
  * 
  * @package    MyS
  * @subpackage model
- * @author     Your name here
+ * @author     Ferbal
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BaseInvoice extends sfDoctrineRecord
@@ -57,8 +57,8 @@ abstract class BaseInvoice extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
-        $this->hasColumn('value', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('value', 'decimal', null, array(
+             'type' => 'decimal',
              'notnull' => true,
              ));
         $this->hasColumn('date', 'date', null, array(

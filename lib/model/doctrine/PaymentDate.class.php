@@ -23,10 +23,6 @@ class PaymentDate extends BasePaymentDate {
     sfApplicationConfiguration::getActive()->loadHelpers(array('Url'));
     $result = parent::save($conn);
 
-
-
-
-
     $out = $this->getJsonFormat();
 
 //TODO: Only add the last paymentDate on event.json.php. Not write all file again.
@@ -57,7 +53,8 @@ class PaymentDate extends BasePaymentDate {
           'url' => url_for('paymentDate/edit?id='.$eventJson->getId()),
           'class' => ($i==5?'event-special':'event-important'),
           'start' => strtotime($eventJson->getDate()) . '000',
-          'end' => strtotime($eventJson->getDate()) . '000'
+          'end' => strtotime($eventJson->getDate()) . '000',
+          'total_value' => $eventJson->getTotalValue()
       );
       $i++;
       $k++;

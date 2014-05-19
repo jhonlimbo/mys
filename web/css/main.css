@@ -99,6 +99,14 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 /*********************/
 /*******PANELS********/
 /*********************/
+
+#payform {
+  position: absolute;
+  left: 15px;
+  top: 65px;
+  z-index: 100;
+}
+
 .panel-default {
   border-color: rgb(159, 177, 212);
 }
@@ -128,6 +136,35 @@ h3, h4, h5, h6 {color: #f1f1f1;}
   text-shadow: 0 2px 1px rgba(70, 40, 130, 0.8);
 }
 
+.panel-body {
+  padding-top: 5px;
+}
+
+.panel-body, 
+.panel-footer {
+  display: none;
+}
+
+.panel.expanded .panel-body, 
+.panel.expanded .panel-footer {
+  display: block;
+}
+
+.expand.panel-heading:hover {
+ cursor: pointer; 
+}
+
+.panel-heading h4 .glyphicon {
+  float: left;
+}
+
+.panel-heading h4 .heading-text {
+  display: none;
+}
+
+.panel.expanded .panel-heading h4 .heading-text {
+  display: block;
+}
 
 .panel .table tr:last-child {
   background-color: rgb(230, 230, 230);
@@ -144,14 +181,129 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 }
 
 .col-md-3 .form-horizontal {
-  padding: 25px 15px;
+  overflow: hidden;
+  padding: 0;
 }
 
 .form-horizontal .form-group .col-md-4, 
 .form-horizontal .form-group .col-md-5 {padding-right: 0;}
-.form-horizontal .form-group .col-md-7,
-.form-horizontal .form-group .col-md-8 {text-align: right;}
-.form-horizontal .form-group .col-md-8 select {float: right;}
+
+.form-horizontal .form-group {
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+.form-horizontal .form-group, 
+#invoice-form+div {
+/*  width: 354px;*/
+}
+
+#invoice-form div {
+  float: left;
+}
+
+div#payform.expanded div#invoice-form>div {
+  border: 1px solid #cbcbcb;
+  border-bottom: none;
+}
+
+div#payform.expanded div#invoice-form>div:last-child {
+  border-bottom: 1px solid #cbcbcb;
+}
+
+div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#eee; }
+/*div#payform.expanded div#invoice-form>div:nth-child(odd)    { background-color:#fff; }*/
+
+.form-horizontal .removenew {
+  margin: 9px 10px 0 5px;
+}
+
+.form-horizontal .removenew .remove-text {
+  display: none;
+  text-indent: -9999px;
+}
+
+#payform.expanded #invoice-form div {
+  display: inline-flex;
+}
+
+#payform.expanded .form-group:not(:first-child) {
+  margin-left: 20px;
+}
+
+#payform.expanded .paydata-row {
+  background-color: rgb(238,163,57);
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+#payform.expanded .paydata {
+  float: left;
+}
+
+#payform.expanded .form-horizontal .form-group.paydata:first-child {
+  float: left;
+}
+
+#payform.expanded .form-horizontal .form-group.paydata:last-child {
+  text-align: right;
+}
+
+#payform.expanded .form-horizontal .form-group label {
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+#payform.expanded .form-horizontal .form-group.paydata #payment_date_date {
+  height: 20px;
+  padding: 0 3px;
+  text-align: center;
+  width: 50%;
+}
+
+#payform.expanded .form-group label, 
+#payform.expanded .form-group div {
+
+}
+
+#payform.expanded .form-group label {
+
+}
+
+#payform.expanded .form-group div {
+
+}
+
+.form-submit {
+  bottom: 8px;
+  position: absolute;
+  right: 20px;
+}
+
+
+.form-group input {
+    padding: 6px 12px;
+/*    width: 100%;  */
+}
+
+.form-group input, .form-group select {
+  background-image: none;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: #555555;
+  display: block;
+  font-size: 12px;
+  height: 20px;
+  line-height: 1.42857;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  vertical-align: middle;
+}
+
+.form-group .error input {
+  border-width: 2px;
+  border-color: blue;
+}
 
 /*********************/
 /**PAYMENTDATE-INDEX**/

@@ -5,7 +5,7 @@
  *
  * @package    MyS
  * @subpackage filter
- * @author     Your name here
+ * @author     Ferbal
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
 abstract class BaseInvoiceFormFilter extends BaseFormFilterDoctrine
@@ -24,7 +24,7 @@ abstract class BaseInvoiceFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'number'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'value'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'value'           => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'date'            => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'supplier_id'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'building_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Building'), 'column' => 'id')),

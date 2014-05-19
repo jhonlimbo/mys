@@ -8,6 +8,7 @@
  * @property integer $id
  * @property date $date
  * @property integer $supplier_id
+ * @property decimal $total_value
  * @property boolean $paid
  * @property Supplier $Supplier
  * @property Doctrine_Collection $Invoices
@@ -15,19 +16,21 @@
  * @method integer             getId()          Returns the current record's "id" value
  * @method date                getDate()        Returns the current record's "date" value
  * @method integer             getSupplierId()  Returns the current record's "supplier_id" value
+ * @method decimal             getTotalValue()  Returns the current record's "total_value" value
  * @method boolean             getPaid()        Returns the current record's "paid" value
  * @method Supplier            getSupplier()    Returns the current record's "Supplier" value
  * @method Doctrine_Collection getInvoices()    Returns the current record's "Invoices" collection
  * @method PaymentDate         setId()          Sets the current record's "id" value
  * @method PaymentDate         setDate()        Sets the current record's "date" value
  * @method PaymentDate         setSupplierId()  Sets the current record's "supplier_id" value
+ * @method PaymentDate         setTotalValue()  Sets the current record's "total_value" value
  * @method PaymentDate         setPaid()        Sets the current record's "paid" value
  * @method PaymentDate         setSupplier()    Sets the current record's "Supplier" value
  * @method PaymentDate         setInvoices()    Sets the current record's "Invoices" collection
  * 
  * @package    MyS
  * @subpackage model
- * @author     Your name here
+ * @author     Ferbal
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasePaymentDate extends sfDoctrineRecord
@@ -50,6 +53,10 @@ abstract class BasePaymentDate extends sfDoctrineRecord
              'notnull' => true,
              'default' => 0,
              'length' => 4,
+             ));
+        $this->hasColumn('total_value', 'decimal', null, array(
+             'type' => 'decimal',
+             'notnull' => false,
              ));
         $this->hasColumn('paid', 'boolean', null, array(
              'type' => 'boolean',

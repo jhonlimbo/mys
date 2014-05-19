@@ -28,7 +28,7 @@ Invoice:
   columns:
     id: {type: integer(4), primary: true, autoincrement: true }
     number: { type: integer, notnull: true }
-    value: { type: integer, notnull: true }
+    value: { type: decimal, notnull: true }
     date: { type: date }
     supplier_id: { type: integer(4), notnull: true }
     building_id: { type: integer(4), notnull: true }
@@ -66,6 +66,7 @@ PaymentDate:
     id: {type: integer(4), primary: true, autoincrement: true }
     date: { type: date, notnull: true }
     supplier_id: { type:integer(4), notnull: true, default: 0 }
+    total_value: { type: decimal, notnull: false }
     paid: { type: boolean, notnull: true }
   indexes:
     supplierDate:  { fields: [date, supplier_id], type: unique }

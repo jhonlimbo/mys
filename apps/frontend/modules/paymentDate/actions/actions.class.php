@@ -4,7 +4,7 @@ class paymentDateActions extends sfActions{
 
   public function executeIndex(sfWebRequest $request){
 
-    var_dump($request->getParameterHolder()->getAll());
+ //   var_dump($request->getParameterHolder()->getAll());
     $this->paymentDates = Doctrine_Core::getTable('PaymentDate')->getOrdered();
     //Pager
     //$this->pager = new sfDoctrinePager(
@@ -16,11 +16,13 @@ class paymentDateActions extends sfActions{
     //$this->pager->init();
 
     // New Paydate form
-    $paymentDate = new PaymentDate();
-    $this->form = new PaymentDateForm($paymentDate);
+    if (!$request->isMethod('post')) {
+      $paymentDate = new PaymentDate();
+   
+      $this->form = new PaymentDateForm($paymentDate);
 
-    $this->form->addNewFields(0);
-
+      $this->form->addNewFields(0);
+   }
   }
 
   public function executeShow(sfWebRequest $request){
@@ -29,22 +31,21 @@ class paymentDateActions extends sfActions{
 
   public function executeEdit(sfWebRequest $request){
     #TODO: translate logs
-    var_dump($request->getParameterHolder()->getAll());
+//    var_dump($request->getParameterHolder()->getAll());
     $this->forward404Unless($paymentDate = Doctrine::getTable('PaymentDate')->find(array($request->getParameter('id'))), sprintf('La Fecha de Pago no existe (%s).', $request->getParameter('id')));
     $this->form = new PaymentDateForm($paymentDate);
-    $this->form->addNewFields(0);
+//    $this->form->addNewFields(0);
     $this->setTemplate('index');
 
   }
 
   public function executeCreate(sfWebRequest $request) {
     $this->form = new PaymentDateForm();
-//    var_dump($request->getParameterHolder()->getAll());die;
     $this->processForm($request, $this->form);
-
   }
 
   public function executeUpdate(sfWebRequest $request){
+//    var_dump($this->form);die;
     $this->processForm($request, $this->form);
     //    $this->form = new PaymentDateForm($this->getRoute()->getObject());
    // $this->processForm($request, $this->form);
@@ -52,9 +53,41 @@ class paymentDateActions extends sfActions{
 
 public function processForm(sfWebRequest $request, sfForm $form) {
     $tainted_values = $request->getParameter('payment_date');
-      //  var_dump($request->getParameterHolder()->getAll());die;
+
+    // See if action == update or create
+    if($tainted_values['id'] == '') { 
+      $taintedInvoice = 'new';
+    }
+    else {
+      $taintedInvoice = 'Invoices';
+    }
+
+/*
+    $invoiceValues = array();
+    foreach ($tainted_values['Invoices'] as $invoice) {
+      $invoiceValues[] = $invoice['value'];
+    }*/
+//    var_dump($invoiceValues);die;
+
+
+    // Get total_value of supplier invoices
+    $invoiceValues = array();
+    foreach ($tainted_values[$taintedInvoice] as $invoice) {
+      $invoiceValues[] = $invoice['value'];
+    }
+
+      // var_dump($request->getParameterHolder()->getAll());die;
+//    var_dump($form->getEmbeddedForms());die;
+    if ($tainted_values['id'] == '') {
+      echo "pepe";die;
+    }
+
+    //add total_value to tainted_values for save it on DB
+    $tainted_values['total_value'] = array_sum($invoiceValues);
+
+      // var_dump($request->getParameterHolder()->getAll());die;
     $paymentDate = Doctrine::getTable('PaymentDate')->find($tainted_values['id']);
-//    $this->form = new PaymentDateForm($paymentDate);
+    $this->form = new PaymentDateForm($paymentDate);
 
     if ($request->isMethod('post') && $this->form->bindAndSave($tainted_values)) {
       $this->redirect('homepage');
