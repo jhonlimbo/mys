@@ -25,7 +25,11 @@
         <?php //TODO: open edit window on modal -> on save close modal and return to paymentDate->indexSuccess ?>
       <div class="panel panel-default" id="payform">
         <div class="panel-heading text-center expand" data-toggle="tooltip" data-placement="top" title="Abrir / Cerrar Formulario">
-          <h4><span class="glyphicon glyphicon-calendar"></span><span class="heading-text"><?php echo __('Nueva Fecha de Pago')?></span></h4>
+          <h4>
+            <span class="glyphicon glyphicon-calendar"></span>
+            <span class="heading-text"><?php echo __('Nueva Fecha de Pago')?></span>
+            <!--<span class="glyphicon glyphicon-arrow-left"></span>-->
+          </h4>
         </div>
         <div class="panel-body">
           <form class="form-horizontal" action="<?php echo url_for('@paymentDate') ?>" method="post">

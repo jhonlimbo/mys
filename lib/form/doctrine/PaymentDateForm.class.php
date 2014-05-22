@@ -20,7 +20,9 @@ class PaymentDateForm extends BasePaymentDateForm {
     $this->widgetSchema['date']= new sfWidgetFormDateJQueryUI();
     $this->widgetSchema['date']->setAttribute('readonly', 'readonly');
     // Datepicker
-    $this->validatorSchema['date'] = new sfValidatorDate(array('date_format' => '~(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4})~', 'date_format_error' => 'dd/mm/YYYY'));
+
+//    $this->validatorSchema['date'] = new sfValidatorDate(array('date_format' => '~(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4})~', 'date_format_error' => 'dd/mm/YYYY'));
+    $this->validatorSchema['date'] = new sfValidatorDate(array('date_format' => '~(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})~', 'date_format_error' => 'YYYY/mm/dd'));
   
     $this->widgetSchema['supplier_id'] = new sfWidgetFormDoctrineChoice(array(
             'model' => $this->getRelatedModelName('Supplier'), 

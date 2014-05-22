@@ -5,21 +5,27 @@ TODO:
 - Ver como queda el calendario sin fines de semana para ganar espacio en cada cuadro. (OK)
 - Linkear entre apps -> Cross application (OK) Ver hacerlo unificado (OK)
 - Agregar datepicker para paymentDateForm fecha input de pago (OK)
+- Formulario fecha de pago > javascript > en edicion de factura, la fecha de pago se convierte sola al formato YYYYMMDD. (OK)
+- Al editar una fecha de pago, si se elige fin de semana tira error. (OK)
 
 - Si se agregan facturas a un proveedor y hay error, se pierden esos datos. (OK) controlar bien todas las validaciones
 - Eliminar una factura (frontend)
 - Eliminar una fecha de pago (frontend)
 - En el popup de month la fecha del calendar agregar importes totales para proveedor y fecha
-- Al editar una fecha de pago, si se elige fin de semana tira error.
-- En edicion de fecha de pago hacer que el select de proveedor sea un input read only.
 
-- Si, cuando hay error se agrega una factura, esa nueva factura pisa la primer factura. si se agregan 2 pisan las 2 primeras y asi. 
+- En edicion de fecha de pago hacer que el select de proveedor sea un input read only. (Evaluar si conviene que quede asi para poder editar tambien el proveedor)
+
+- Si, hay error y se agrega una factura, esa nueva factura pisa la primer factura. si se agregan 2 pisan las 2 primeras y asi. 
   Al hacer submit y agregar una factura el indice comienza desde cero. Dejo harcodeado newfieldscount en 50 (payment-date-form.js) para no pisar las facturas anteriores.
 - Mostrar ordenados los options de proveedor y edificio.
 - Validar duplicado de facturas. Evaluar respecto a mismo numero pero diferente año
 
 - Reportes
   Ver si se pueden generar los reportes a partir del calendar
+
+- Formulario fecha de pago > javascript > en edicion de factura, cuando se agrega una nueva y se guarda, no se actualiza el total a cobrar por el proveedor
+
+La db guarda en ese formato pero algo pasa entre jquery calendar y symfony que tira error
 
 
 
@@ -70,3 +76,8 @@ Calendar
  1. php symfony generate:app backend
  2. php symfony doctrine:generate-admin backend nombreClase --module=nombre_modulo
  3. php symfony plugin:publish-assets
+
+
+POST Implementacion
+===================
+- Corregir formato en datepcker para que se vea dd/mm/yyyy

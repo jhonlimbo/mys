@@ -45,6 +45,8 @@
   <script type="text/javascript" src="/js/app.js"></script>
   <script type="text/javascript">
     $( "#payment_date_date" ).datepicker({
+
+      dateFormat: "yy-mm-dd",
       beforeShowDay: $.datepicker.noWeekends,
       duration: "slow",
       minDate: 0,
@@ -66,7 +68,7 @@ $(document).ready(function(){
     isLarge = true; 
   }
   $('.expand').click(function(){
-    $("#payform").animate({left:(isLarge ? '15' : '15'),width:(isLarge ? '34px' : '990px'), 'min-height':(isLarge ? '30px' : '159px') });
+    $("#payform").animate({left:(isLarge ? '15' : '15'),'min-height':(isLarge ? '0' : '159px'),width:(isLarge ? '34px' : '990px')});
     $('#payform').toggleClass('expanded', isLarge == false);
     isLarge = !isLarge;    
   });

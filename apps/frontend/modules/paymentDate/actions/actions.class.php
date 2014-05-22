@@ -79,7 +79,7 @@ public function processForm(sfWebRequest $request, sfForm $form) {
       // var_dump($request->getParameterHolder()->getAll());die;
 //    var_dump($form->getEmbeddedForms());die;
     if ($tainted_values['id'] == '') {
-      echo "pepe";die;
+  
     }
 
     //add total_value to tainted_values for save it on DB
