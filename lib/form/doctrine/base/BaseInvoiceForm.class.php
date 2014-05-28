@@ -27,7 +27,7 @@ abstract class BaseInvoiceForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'              => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'number'          => new sfValidatorInteger(),
+      'number'          => new sfValidatorInteger(array('required' => false)),
       'value'           => new sfValidatorNumber(),
       'date'            => new sfValidatorDate(array('required' => false)),
       'supplier_id'     => new sfValidatorInteger(),

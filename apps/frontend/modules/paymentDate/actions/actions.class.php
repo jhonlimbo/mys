@@ -62,14 +62,6 @@ public function processForm(sfWebRequest $request, sfForm $form) {
       $taintedInvoice = 'Invoices';
     }
 
-/*
-    $invoiceValues = array();
-    foreach ($tainted_values['Invoices'] as $invoice) {
-      $invoiceValues[] = $invoice['value'];
-    }*/
-//    var_dump($invoiceValues);die;
-
-
     // Get total_value of supplier invoices
     $invoiceValues = array();
     foreach ($tainted_values[$taintedInvoice] as $invoice) {
@@ -78,9 +70,9 @@ public function processForm(sfWebRequest $request, sfForm $form) {
 
       // var_dump($request->getParameterHolder()->getAll());die;
 //    var_dump($form->getEmbeddedForms());die;
-    if ($tainted_values['id'] == '') {
+//    if ($tainted_values['id'] == '') {
   
-    }
+//    }
 
     //add total_value to tainted_values for save it on DB
     $tainted_values['total_value'] = array_sum($invoiceValues);

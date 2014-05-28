@@ -84,6 +84,7 @@
             
             <?php // EDIT FORM TEMPLATE ?>
             <?php foreach ($form['Invoices'] as $invoice):?>
+            <?php $invoiceValues = $invoice->getValue(); ?>
               <div>
                 <div class="form-group">
                   <?php echo $invoice['building_id']->renderLabel(__('Edificio'), array('class' => 'col-md-5')) ?>  <?php echo $invoice['building_id']->renderError() ?>
@@ -96,6 +97,11 @@
                 <div class="form-group">
                   <?php echo $invoice['value']->renderLabel(__('Importe:'), array('class' => 'col-md-5')) ?>  <?php echo $invoice['value']->renderError() ?>
                   <div class="col-md-7"><?php echo $invoice['value'] ?></div>
+                </div>
+                <div class="form-group">
+                  <?php echo $invoice['delete']->render() ?>
+                  <?php echo $invoice['delete']->renderError() ?>
+                  <?php echo $invoice['delete']->renderLabel(__('Eliminar Factura')) ?>
                 </div>
               </div>
             <?php endforeach ?>

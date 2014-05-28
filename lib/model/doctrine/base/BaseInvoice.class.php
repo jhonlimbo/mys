@@ -55,7 +55,7 @@ abstract class BaseInvoice extends sfDoctrineRecord
              ));
         $this->hasColumn('number', 'integer', null, array(
              'type' => 'integer',
-             'notnull' => true,
+             'notnull' => false,
              ));
         $this->hasColumn('value', 'decimal', null, array(
              'type' => 'decimal',

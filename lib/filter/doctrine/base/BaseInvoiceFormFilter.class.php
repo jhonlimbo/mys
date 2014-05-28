@@ -13,7 +13,7 @@ abstract class BaseInvoiceFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'number'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'number'          => new sfWidgetFormFilterInput(),
       'value'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'date'            => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'supplier_id'     => new sfWidgetFormFilterInput(array('with_empty' => false)),

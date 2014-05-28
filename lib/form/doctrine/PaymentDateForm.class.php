@@ -9,19 +9,21 @@
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class PaymentDateForm extends BasePaymentDateForm {
+
+  // Bookmarks scheduled for deletion
+  protected $scheduledForDeletion = array();
+
   public function configure() {
 //    unset($this['paid']);
     $this->embedRelation('Invoices');
-//    var_dump($this->embedRelation('Invoices'));die;
 
     $culture = sfContext::getInstance()->getUser()->getCulture();
 //    $this->widgetSchema['date'] = new sfWidgetFormI18nDate(array('culture'=>'es_AR'));
 //    $this->widgetSchema['date']= new sfWidgetFormDateJQueryUI(array("change_month" => true, "change_year" => true, 'culture' => $culture));
     $this->widgetSchema['date']= new sfWidgetFormDateJQueryUI();
     $this->widgetSchema['date']->setAttribute('readonly', 'readonly');
-    // Datepicker
 
-//    $this->validatorSchema['date'] = new sfValidatorDate(array('date_format' => '~(?P<day>\d{2})/(?P<month>\d{2})/(?P<year>\d{4})~', 'date_format_error' => 'dd/mm/YYYY'));
+    // Datepicker
     $this->validatorSchema['date'] = new sfValidatorDate(array('date_format' => '~(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})~', 'date_format_error' => 'YYYY/mm/dd'));
   
     $this->widgetSchema['supplier_id'] = new sfWidgetFormDoctrineChoice(array(
@@ -60,16 +62,11 @@ class PaymentDateForm extends BasePaymentDateForm {
       $formatedDbDates = array();
       foreach ($supplierPaymentDates as $dbDates) {
         $formatedDbDates[] = date('Y-m',strtotime($dbDates->date));
-        var_dump($dbDates->id);
+
       }
-      die;
-      var_dump($values);
-    var_dump($formatedDbDates);die;      
+
       // Format pay date from form to Year-month
       $formatedFormDate = date('Y-m',strtotime($values['date']));
-
-      //if()
-
 
     //if($this->isNew()){
     //  $paymentDates = Doctrine_Core::getTable('PaymentDate')->getSupplierXdate($values['supplier_id']);
@@ -110,7 +107,6 @@ class PaymentDateForm extends BasePaymentDateForm {
     $this->embedForm('new', $new_invoices);
   }
 
-
   public function bind(array $taintedValues = null, array $taintedFiles = null){
 
     $new_invoices = new BaseForm();
@@ -123,8 +119,55 @@ class PaymentDateForm extends BasePaymentDateForm {
         $new_invoices->embedForm($key,$invoice_form);
       }
     }
+
     $this->embedForm('new',$new_invoices);
+    if (isset($taintedValues['Invoices'])) {
+      foreach ($taintedValues['Invoices'] as $i => $deleteInvoiceValues) {
+        if (isset($deleteInvoiceValues['delete']) && $deleteInvoiceValues['id']) {
+          $this->scheduledForDeletion[$i] = $deleteInvoiceValues['id'];
+        }
+      }
+    }
 
     parent::bind($taintedValues, $taintedFiles);
+  }
+
+// Updates object with provided values, dealing with evantual relation deletion
+
+  protected function doUpdateObject($taintedValues) {
+    if (count($this->scheduledForDeletion)) {
+      foreach ($this->scheduledForDeletion as $index => $id) {
+        unset($taintedValues['Invoices'][$index]);
+        unset($this->object['Invoices'][$index]);
+        unset($taintedValues['new'], $this['new']);
+        
+        Doctrine::getTable('Invoice')->findOneById($id)->delete();
+      }
+    }
+
+    $this->getObject()->fromArray($taintedValues);
+  }
+
+//  Saves embedded form objects.
+public function saveEmbeddedForms($con = null, $forms = null) {
+    if (null === $con) {
+      $con = $this->getConnection();
+    }
+
+    if (null === $forms) {
+      $forms = $this->embeddedForms;
+    }
+    
+    foreach ($forms as $form) {
+      if ($form instanceof sfFormObject) {
+        if (!in_array($form->getObject()->getId(), $this->scheduledForDeletion)) {
+          $form->saveEmbeddedForms($con);
+          $form->getObject()->save($con);
+        }
+      }
+      else {
+        $this->saveEmbeddedForms($con, $form->getEmbeddedForms());
+      }
+    }
   }
 }

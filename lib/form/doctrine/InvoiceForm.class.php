@@ -20,6 +20,10 @@ class InvoiceForm extends BaseInvoiceForm {
           'add_empty' => false, 
           'order_by' => array('name', 'asc')
          ));
-  
+
+    if ($this->object->exists()) {
+          $this->widgetSchema['delete'] = new sfWidgetFormInputCheckbox();
+          $this->validatorSchema['delete'] = new sfValidatorPass();
+    }
   }
 }
