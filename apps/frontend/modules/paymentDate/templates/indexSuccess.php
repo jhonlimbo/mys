@@ -60,17 +60,58 @@
 <script>
 
 isLarge = false;
+isActive = false;
 
 $(document).ready(function(){
   if ($('.error')[0] || $('#payment_date_Invoices_0_number').length){
     $("#payform").width( '990px' );
     $('#payform').toggleClass('expanded', isLarge == false);
-    isLarge = true; 
+    isLarge = true;
   }
+
+
+  $('.expand').click(function(){
+    $("#payform").animate({left:(isLarge ? '15' : '15'),'min-height':(isLarge ? '0' : '159px'),width:(isLarge ? '34px' : '990px')});
+    $('#payform').toggleClass('expanded', isLarge == false);
+    isLarge = !isLarge;
+  });
+
+  $('input:checkbox').click(function(){
+     $(this).parent('div').children('span.highlight-delete').toggleClass('glyphicon glyphicon-ok', this.checked);
+     $(this).parent('div').children('label.cursor-pointer').toggleClass('highlight-delete', this.checked);
+  });
+
+
+
+}); 
+</script> 
+
+
+
+
+<script>
+//para hacer el script de arriba, luego borrar
+/*
+isLarge = false;
+isActive = false;
+
+$(document).ready(function(){
+  if ($('.error')[0] || $('#payment_date_Invoices_0_number').length){
+    $("#payform").width( '990px' );
+    $('#payform').toggleClass('expanded', isLarge == false);
+    isLarge = true;
+  }
+
+
   $('.expand').click(function(){
     $("#payform").animate({left:(isLarge ? '15' : '15'),'min-height':(isLarge ? '0' : '159px'),width:(isLarge ? '34px' : '990px')});
     $('#payform').toggleClass('expanded', isLarge == false);
     isLarge = !isLarge;    
   });
-}); 
+
+  $('.highlight-delete').click(function(){
+    $('.highlight-delete').toggleClass('toto', isActive == false);
+    isActive = !isActive;    
+  });
+});*/ 
 </script>

@@ -27,7 +27,7 @@
         <div class="panel-heading text-center expand" data-toggle="tooltip" data-placement="top" title="Abrir / Cerrar Formulario">
           <h4>
             <span class="glyphicon glyphicon-calendar"></span>
-            <span class="heading-text"><?php echo __('Nueva Fecha de Pago')?></span>
+            <span class="heading-text"><?php echo __($form->formTitle . ' Fecha de Pago')?></span>
             <!--<span class="glyphicon glyphicon-arrow-left"></span>-->
           </h4>
         </div>
@@ -35,33 +35,34 @@
           <form class="form-horizontal" action="<?php echo url_for('@paymentDate') ?>" method="post">
             <?php echo $form->renderHiddenFields() ?>
             <div class="paydata-row">
-              <div class="form-group paydata col-md-6">
+              <div class="form-group paydata col-md-5">
                 <?php echo $form['supplier_id']->renderLabel(__('Proveedor:'), array('class' => 'col-md-3'))?> 
                 <?php echo $form['supplier_id']->renderError()?> 
                 <div class="col-md-9">
                   <?php echo $form['supplier_id'] ?>
                 </div>
               </div>
-              <div class="form-group paydata col-md-6">
-                <?php echo $form['date']->renderLabel(__('Fecha de Pago:'), array('class' => 'col-md-7'))?> 
+              <div class="form-group paydata col-md-4">
+                <?php echo $form['date']->renderLabel(__('Fecha de Pago:'), array('class' => 'col-md-5'))?> 
 
-              <?php if ($form['date']->hasError()): ?>
-                <div class="col-md-5 error">
-              <?php else: ?>
-                <div class="col-md-5">
-              <?php endif; ?>
+                <?php if ($form['date']->hasError()): ?>
+                <div class="col-md-4 error">
+                <?php else: ?>
+                <div class="col-md-4">
+                <?php endif; ?>
                   <?php echo $form['date'] ?>
-                </div>             
-
-
-
-
-
-
-
+                </div>
                 <?//php echo $form['date']->renderError()?> 
- 
-              </div>                        
+              </div>
+              <div class="form-group paydata col-md-3">
+                <?php
+                  if (!$form->getObject()->isNew()) {
+                    echo link_to(
+                    'Eliminar Fecha de Pago',
+                    'paymentDate/delete?id='.$form->getObject()->getId(),
+                    array('method' => 'delete', 'confirm' => 'Eliminar la fecha de pago y todas sus facturas?', 'class' => 'delete-paydate'));
+                }?>
+              </div>
             </div>
             <div id="invoice-form">
               <?php if ($form->getObject()->isNew() && !$form->hasErrors()): ?>
@@ -83,6 +84,7 @@
               <?php endif ?>
             
             <?php // EDIT FORM TEMPLATE ?>
+
             <?php foreach ($form['Invoices'] as $invoice):?>
             <?php $invoiceValues = $invoice->getValue(); ?>
               <div>
@@ -98,28 +100,44 @@
                   <?php echo $invoice['value']->renderLabel(__('Importe:'), array('class' => 'col-md-5')) ?>  <?php echo $invoice['value']->renderError() ?>
                   <div class="col-md-7"><?php echo $invoice['value'] ?></div>
                 </div>
-                <div class="form-group">
-                  <?php echo $invoice['delete']->render() ?>
-                  <?php echo $invoice['delete']->renderError() ?>
-                  <?php echo $invoice['delete']->renderLabel(__('Eliminar Factura')) ?>
+                <div class="form-group delete-wrapper">
+                  <div class="delete-invoice">
+                    <?php echo $invoice['delete']->render(array('class' => 'input-hide')) ?>
+                    <?php echo $invoice['delete']->renderLabel(__('Eliminar'), array('class' => 'cursor-pointer', 'id' => 'delete-'.$invoice['id']->getValue())) ?>
+                    <span class="highlight-delete"></span>
+                  </div>
                 </div>
               </div>
             <?php endforeach ?>
-            
+
             <?php // EDIT FORM TEMPLATE ?>
             <?php if(isset($form['new']) && $form->hasErrors()): ?>
               <?php foreach($form['new'] as $newForm ): ?>
-                <div class="form-group">
-                  <?php echo $newForm['building_id']->renderLabel('Edificio:', array('class' => 'col-md-5')) ?>  <?php echo $newForm['building_id']->renderError() ?>
-                  <div class="col-md-7"><?php echo $newForm['building_id'] ?></div>
-                </div>
-                <div class="form-group">
-                  <?php echo $newForm['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-5')) ?>  <?php echo $newForm['number']->renderError() ?>
-                  <div class="col-md-7"><?php echo $newForm['number'] ?></div>
-                </div>
-                <div class="form-group">
-                  <?php echo $newForm['value']->renderLabel(__('Importe:'), array('class' => 'col-md-5')) ?>  <?php echo $newForm['value']->renderError() ?>
-                  <div class="col-md-7"><?php echo $newForm['value'] ?></div>
+                <div>
+                  <div class="form-group">
+                    <?php echo $newForm['building_id']->renderLabel('Edificio:', array('class' => 'col-md-5')) ?>  <?php echo $newForm['building_id']->renderError() ?>
+                    <div class="col-md-7"><?php echo $newForm['building_id'] ?></div>
+                  </div>
+                  <div class="form-group">
+                    <?php echo $newForm['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-5')) ?>  <?//php echo $newForm['number']->renderError() ?>
+                    <?php if ($newForm['number']->hasError()): ?>
+                      <div class="col-md-7 error">
+                    <?php else: ?>
+                      <div class="col-md-7">
+                    <?php endif; ?>
+                      <?php echo $newForm['number'] ?>
+                    </div>             
+                  </div>
+                  <div class="form-group">
+                    <?php echo $newForm['value']->renderLabel(__('Importe:'), array('class' => 'col-md-5')) ?>  <?//php echo $newForm['value']->renderError() ?>                  
+                    <?php if ($newForm['value']->hasError()): ?>
+                      <div class="col-md-7 error">
+                    <?php else: ?>
+                      <div class="col-md-7">
+                    <?php endif; ?>
+                      <?php echo $newForm['value'] ?>
+                    </div>             
+                  </div>
                 </div>
             <?php endforeach ?>
             <?php endif ?>
@@ -127,6 +145,9 @@
             <input class="pull-right form-submit" type="submit" value="<?php echo __('Guardar')?>" />            
           </form>
         </div>
+                        <?// var_dump($form->getObject()->getInvoices());?>
+                        <?// echo count($form['Invoices']);?>                        
+
         <div class="panel-footer">
           <a id="addinvoice" href="#">
             <span class="glyphicon glyphicon-plus"></span>

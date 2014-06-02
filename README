@@ -9,9 +9,13 @@ TODO:
 - Al editar una fecha de pago, si se elige fin de semana tira error. (OK)
 - Mostrar ordenados los options de proveedor y edificio. (OK)
 - Si se agregan facturas a un proveedor y hay error, se pierden esos datos. (OK) controlar bien todas las validaciones
+- Eliminar una fecha de pago (frontend) (OK)
+- Actualizar valores del total de la fecha de pago al agregar una nueva factura (no suma la ultima) (actualizar event.json) (OK)
 
 - Eliminar una factura (frontend) (OK) Si se elimina una factura y se agrega otra al mismo tiempo, no se guarda la agregado
-- Eliminar una fecha de pago (frontend)
+- Formulario fecha de pago > javascript > en edicion de factura, cuando se borra una factura y se guarda, no se actualiza el total a cobrar por el proveedor - Accion DELETE
+
+
 - En el popup de month la fecha del calendar agregar importes totales para proveedor y fecha
 
 - En edicion de fecha de pago hacer que el select de proveedor sea un input read only. (Evaluar si conviene que quede asi para poder editar tambien el proveedor)
@@ -20,12 +24,10 @@ TODO:
 
 - Validar duplicado de facturas. Evaluar respecto a mismo numero pero diferente año
 
+- Si se elimina un fecha de pago, eliminarla tambien del calendario (actualizar event.json)
+
 - Reportes
   Ver si se pueden generar los reportes a partir del calendar
-
-- Formulario fecha de pago > javascript > en edicion de factura, cuando se agrega una nueva y se guarda, no se actualiza el total a cobrar por el proveedor
-
-
 
 
 
@@ -43,6 +45,7 @@ CSS
 - Fade in fade out navbar
 - Dar estilo al calendario
 - CSS para vista de semana en calendario
+- Corregir select's de edificio. El primer select es menos ancho que los addNew 
 
 
 BUGS

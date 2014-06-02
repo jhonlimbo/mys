@@ -22,6 +22,7 @@ class paymentDateActions extends sfActions{
       $this->form = new PaymentDateForm($paymentDate);
 
       $this->form->addNewFields(0);
+      $this->form->formTitle = "Nueva";
    }
   }
 
@@ -35,6 +36,7 @@ class paymentDateActions extends sfActions{
     $this->forward404Unless($paymentDate = Doctrine::getTable('PaymentDate')->find(array($request->getParameter('id'))), sprintf('La Fecha de Pago no existe (%s).', $request->getParameter('id')));
     $this->form = new PaymentDateForm($paymentDate);
 //    $this->form->addNewFields(0);
+    $this->form->formTitle = "Editar";
     $this->setTemplate('index');
 
   }
@@ -51,21 +53,33 @@ class paymentDateActions extends sfActions{
    // $this->processForm($request, $this->form);
   }
 
+public function executeDelete(sfWebRequest $request) {
+  $paymentDate = $this->getRoute()->getObject();
+  $paymentDate->delete();
+
+//  var_dump($paymentDate);die;
+//  $out = paymentDate::getJsonFormat();
+//  $this->writeFile($out);  
+ 
+  $this->redirect('homepage');
+}
+
 public function processForm(sfWebRequest $request, sfForm $form) {
     $tainted_values = $request->getParameter('payment_date');
 
-    // See if action == update or create
-    if($tainted_values['id'] == '') { 
-      $taintedInvoice = 'new';
-    }
-    else {
-      $taintedInvoice = 'Invoices';
-    }
-
     // Get total_value of supplier invoices
     $invoiceValues = array();
-    foreach ($tainted_values[$taintedInvoice] as $invoice) {
-      $invoiceValues[] = $invoice['value'];
+    $sumaNew = array();
+    if(isset($tainted_values['Invoices'])) {
+      foreach ($tainted_values['Invoices'] as $invoice) {
+        $invoiceValues[] = $invoice['value'];
+      }
+    }
+
+    if(isset($tainted_values['new'])){
+      foreach ($tainted_values['new'] as $invoiceNew) {
+        $sumaNew[] = $invoiceNew['value'];
+      }
     }
 
       // var_dump($request->getParameterHolder()->getAll());die;
@@ -75,7 +89,9 @@ public function processForm(sfWebRequest $request, sfForm $form) {
 //    }
 
     //add total_value to tainted_values for save it on DB
-    $tainted_values['total_value'] = array_sum($invoiceValues);
+    $tainted_values['total_value'] = array_sum($invoiceValues) + array_sum($sumaNew);
+
+
 
       // var_dump($request->getParameterHolder()->getAll());die;
     $paymentDate = Doctrine::getTable('PaymentDate')->find($tainted_values['id']);

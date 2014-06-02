@@ -5,6 +5,20 @@ a:hover.red {color: #bf583d;}
 h1, h2 {color:rgb(90, 111, 150);}
 h3, h4, h5, h6 {color: #f1f1f1;}
 
+.cursor-pointer:hover {
+  cursor: pointer;
+}
+
+.highlight-delete {
+  color: red !important;
+  font-size: 12px;
+  text-shadow: 0 1px 1px rgba(120, 0, 0, 0.5);
+}
+
+.highlight-delete.glyphicon.glyphicon-ok {
+  margin-left: 3px;
+}
+
 /*********************/
 /*******NAVBAR********/
 /*********************/
@@ -150,6 +164,10 @@ h3, h4, h5, h6 {color: #f1f1f1;}
   display: block;
 }
 
+.expand.panel-heading {
+  overflow: hidden;
+}
+
 .expand.panel-heading:hover {
  cursor: pointer; 
 }
@@ -169,7 +187,12 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 .panel .table tr:last-child {
   background-color: rgb(230, 230, 230);
   font-weight: bold;
-/*  border-radius: 0 0 5px 5px;*/
+/*  
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+*/
+
 }
 
 .panel .table tr td {
@@ -198,6 +221,10 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 /*  width: 354px;*/
 }
 
+.form-horizontal #invoice-form {
+  overflow: hidden;
+}
+
 #invoice-form div {
   float: left;
 }
@@ -205,6 +232,7 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 div#payform.expanded div#invoice-form>div {
   border: 1px solid #cbcbcb;
   border-bottom: none;
+  width: 100%;
 }
 
 div#payform.expanded div#invoice-form>div:last-child {
@@ -237,11 +265,8 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   overflow: hidden;
 }
 
+#payform.expanded .form-horizontal .form-group.paydata:first-child, 
 #payform.expanded .paydata {
-  float: left;
-}
-
-#payform.expanded .form-horizontal .form-group.paydata:first-child {
   float: left;
 }
 
@@ -254,11 +279,28 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   margin-bottom: 0;
 }
 
+#payform.expanded .form-horizontal .form-group .delete-invoice label {
+  color: #ccc;
+  font-size: 12px;
+}
+
+#payform.expanded .form-horizontal .form-group input.input-hide {
+  display: none;
+}
+
+#payform.expanded .form-horizontal .form-group .delete-paydate {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  color: #428bca;
+  font-weight: bold;
+  padding: 3px 5px;
+}
+
 #payform.expanded .form-horizontal .form-group.paydata #payment_date_date {
   height: 20px;
   padding: 0 3px;
   text-align: center;
-  width: 50%;
+  width: 100%;
 }
 
 #payform.expanded .form-group label, 
@@ -289,8 +331,12 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 .form-group input, .form-group select {
   background-image: none;
   border: 1px solid #CCCCCC;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
   border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  -moz-box-shadow:    0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  box-shadow:         0 1px 1px rgba(0, 0, 0, 0.075) inset;
   color: #555555;
   display: block;
   font-size: 12px;
@@ -298,11 +344,17 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   line-height: 1.42857;
   transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   vertical-align: middle;
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(37, 37, 37, 0.75);
+  -moz-box-shadow:    2px 2px 2px 0px rgba(37, 37, 37, 0.75);
+  box-shadow:         2px 2px 2px 0px rgba(37, 37, 37, 0.75);
 }
 
 .form-group .error input {
-  border-width: 2px;
+  border-width: 1px;
   border-color: blue;
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 255, 0.75);
+  -moz-box-shadow:    2px 2px 2px 0px rgba(0, 0, 255, 0.75);
+  box-shadow:         2px 2px 2px 0px rgba(0, 0, 255, 0.75);
 }
 
 /*********************/
@@ -429,3 +481,6 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 .cal-week-box .cal-offset2, .cal-row-fluid .cal-offset2, .cal-row-fluid .cal-offset2:first-child {margin-left: 40%;}
 .cal-week-box .cal-offset3, .cal-row-fluid .cal-offset3, .cal-row-fluid .cal-offset3:first-child {margin-left: 60%;}
 .cal-week-box .cal-offset4, .cal-row-fluid .cal-offset4, .cal-row-fluid .cal-offset4:first-child {margin-left: 80%;}
+
+
+

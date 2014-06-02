@@ -24,12 +24,17 @@ class PaymentDate extends BasePaymentDate {
     $result = parent::save($conn);
 
     $out = $this->getJsonFormat();
+    $this->writeFile($out);
+    return $result;
+  }
 
-//TODO: Only add the last paymentDate on event.json.php. Not write all file again.
-    $fileName = sfConfig::get('sf_web_dir') . "/events.json.php";
-    $fileHandle = fopen($fileName, 'w') or die("can't open file");
-    fputs($fileHandle ,json_encode(array('success' => 1, 'result' => $out)));
-    fclose($fileHandle);
+
+  public function delete(Doctrine_Connection $conn = null) {
+    sfApplicationConfiguration::getActive()->loadHelpers(array('Url'));
+    $result = parent::delete($conn);
+
+    $out = $this->getJsonFormat();
+    $this->writeFile($out);
     return $result;
   }
 
@@ -68,5 +73,11 @@ class PaymentDate extends BasePaymentDate {
 //  }
 //  var_dump(isWeekend('2014-03-21'));
 
-
+  public function writeFile($out) {
+//TODO: Only add the last paymentDate on event.json.php. Not write all file again.
+    $fileName = sfConfig::get('sf_web_dir') . "/events.json.php";
+    $fileHandle = fopen($fileName, 'w') or die("No se puede abrir el archivo");
+    fputs($fileHandle ,json_encode(array('success' => 1, 'result' => $out)));
+    fclose($fileHandle);
+  }
 }
