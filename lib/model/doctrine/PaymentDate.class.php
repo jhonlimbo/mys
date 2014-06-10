@@ -80,4 +80,5 @@ class PaymentDate extends BasePaymentDate {
     fputs($fileHandle ,json_encode(array('success' => 1, 'result' => $out)));
     fclose($fileHandle);
   }
+
 }

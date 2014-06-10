@@ -1,0 +1,189 @@
+/*********************/
+/*******PANELS********/
+/*********************/
+#sfWebDebug,
+.navbar, .col-md-11, .panel-heading, .panel-footer, .delete-paydate, .delete-invoice *, #payform.expanded .form-horizontal .form-group input.input-hide, .form-submit, .modal * {
+  display: none;
+}
+
+#payform {
+  position: absolute;
+  left: 15px;
+  top: 65px;
+  z-index: 100;
+}
+
+.panel-body {
+  padding-top: 5px;
+}
+
+.panel.expanded .panel-body {
+  display: block;
+}
+
+.form-horizontal {
+/*  overflow: hidden;*/
+  padding: 0;
+}
+
+.form-horizontal .form-group .col-md-4, 
+.form-horizontal .form-group .col-md-5 {padding-right: 0;}
+
+.form-horizontal .form-group {
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+.form-horizontal #invoice-form {
+  clear: both;
+  overflow: hidden;
+}
+
+#invoice-form div {
+  float: left;
+}
+
+div#payform.expanded div#invoice-form>div {
+  border: 1px solid #cbcbcb;
+  border-bottom: none;
+  width: 100%;
+}
+
+div#payform.expanded div#invoice-form>div:last-child {
+  border-bottom: 1px solid #cbcbcb;
+}
+
+div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#eee; }
+/*div#payform.expanded div#invoice-form>div:nth-child(odd)    { background-color:#fff; }*/
+
+#payform.expanded #invoice-form div {
+  display: inline-flex;
+}
+
+#payform.expanded .form-group:not(:first-child) {
+  margin-left: 20px;
+}
+
+#payform.expanded .paydata-row {
+  background-color: rgb(240,240,240);
+  float: left;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+#payform.expanded .form-horizontal .form-group.paydata:first-child, 
+#payform.expanded .paydata {
+  float: left;
+}
+
+#payform.expanded .form-horizontal .form-group.paydata:last-child {
+  text-align: right;
+}
+
+#payform.expanded .form-horizontal .form-group label {
+  margin-bottom: 0;
+}
+
+#payform.expanded .form-horizontal .form-group.paydata #payment_date_date {
+  height: 20px;
+  padding: 0 3px;
+  text-align: center;
+  width: 100%;
+}
+
+#invoice-form .form-group label {
+  line-height: 35px;
+}
+
+#invoice-form .form-group input {
+  background-image: none;
+  border: 1px solid #CCCCCC;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  -moz-box-shadow:    0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  box-shadow:         0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  color: #555555;
+  display: block;
+  font-size: 12px;
+  height: 20px;
+  line-height: 1.42857;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+  vertical-align: middle;
+  -webkit-box-shadow: 2px 2px 2px 0px rgba(37, 37, 37, 0.75);
+  -moz-box-shadow:    2px 2px 2px 0px rgba(37, 37, 37, 0.75);
+  box-shadow:         2px 2px 2px 0px rgba(37, 37, 37, 0.75);
+  margin-left: 5px;
+}
+
+
+
+
+.chosen-single span {
+
+}
+
+.chosen-container-single, 
+.chosen-container-single *, 
+input.hasDatepicker {
+  border: none !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 !important;
+  background-color: transparent !important;
+}
+
+
+
+.form-group.paydata.col-md-5 { 
+  float: left !important;
+  width: 45% !important;
+}
+
+
+.form-group.paydata.col-md-4 {
+  float: right !important;
+  width: 40% !important;
+  text-align: right;
+}
+
+
+
+.form-group.paydata label, 
+.form-group.paydata input, 
+.form-group.paydata div {
+
+  clear: none;
+  display: inline;
+}
+
+.form-group.paydata.col-md-4 label {
+  display: inline-flex;
+  float: left;
+  text-align: right;
+
+}
+
+.form-group.paydata.col-md-4 div {
+  display: inline-flex;
+  clear: none;
+  float: left;
+  overflow: hidden;
+width: 135px;
+}
+
+.form-group.paydata.col-md-4 input {
+text-align: right;
+overflow: hidden;
+
+}
+
+.form-group.paydata.col-md-4 *,
+.form-group.paydata.col-md-5 * {
+  clear: none;
+  font-size: 22px;
+}
+

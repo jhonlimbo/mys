@@ -20,9 +20,8 @@ class paymentDateActions extends sfActions{
       $paymentDate = new PaymentDate();
    
       $this->form = new PaymentDateForm($paymentDate);
-
-      $this->form->addNewFields(0);
       $this->form->formTitle = "Nueva";
+      $this->form->addNewFields(0);
    }
   }
 
@@ -98,9 +97,10 @@ public function processForm(sfWebRequest $request, sfForm $form) {
     $this->form = new PaymentDateForm($paymentDate);
 
     if ($request->isMethod('post') && $this->form->bindAndSave($tainted_values)) {
+
       $this->redirect('homepage');
     }
-
+    $this->form->formTitle = $this->form->isNew()? "Nueva" : 'Editar';
     $this->setTemplate('index');  
 }
 

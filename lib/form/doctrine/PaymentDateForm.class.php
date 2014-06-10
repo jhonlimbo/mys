@@ -137,11 +137,25 @@ class PaymentDateForm extends BasePaymentDateForm {
   protected function doUpdateObject($taintedValues) {
     if (count($this->scheduledForDeletion)) {
       foreach ($this->scheduledForDeletion as $index => $id) {
+        $deletedInvoice = Doctrine::getTable('Invoice')->findOneById($id);
+        $invoicePaymentDateId = $deletedInvoice->getPaymentDateId();
+        $deletedInvoiceValue = $deletedInvoice->getValue();
+        $paymentDate = Doctrine::getTable('PaymentDate')->findOneById($invoicePaymentDateId);
+        $totalValue = $paymentDate->getTotalValue();
+        $newValue = $totalValue - $deletedInvoiceValue;
+        $paymentDate->setTotalValue($newValue);
+
+
+
+
         unset($taintedValues['Invoices'][$index]);
         unset($this->object['Invoices'][$index]);
         unset($taintedValues['new'], $this['new']);
+
+
         
         Doctrine::getTable('Invoice')->findOneById($id)->delete();
+        $paymentDate->save();
       }
     }
 

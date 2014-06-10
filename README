@@ -84,3 +84,10 @@ Calendar
 POST Implementacion
 ===================
 - Corregir formato en datepcker para que se vea dd/mm/yyyy. La db guarda en ese formato pero algo pasa entre jquery calendar y symfony que tira error
+
+
+
+GIT Commands
+===================
+Excluir del commit un archivo versionado
+git update-index --assume-unchanged path/to/file.txt (Windows -> F:/carpeta/subcarpeta/archivo.txt)

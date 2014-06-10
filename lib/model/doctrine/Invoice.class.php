@@ -25,4 +25,14 @@ class Invoice extends BaseInvoice {
     return parent::save($conn);
   } 
 
+  public function delete(Doctrine_Connection $conn = null) {
+    sfApplicationConfiguration::getActive()->loadHelpers(array('Url'));
+
+
+
+    
+    $result = parent::delete($conn);
+
+    return $result;
+  }
 }

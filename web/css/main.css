@@ -3,7 +3,7 @@ body {background-color: rgba(241,241,241,0.8)}
 .red {color: #e9594d;}
 a:hover.red {color: #bf583d;}
 h1, h2 {color:rgb(90, 111, 150);}
-h3, h4, h5, h6 {color: #f1f1f1;}
+h3 *, h4 *, h5 *, h6 * {color: #f1f1f1;}
 
 .cursor-pointer:hover {
   cursor: pointer;
@@ -150,6 +150,11 @@ h3, h4, h5, h6 {color: #f1f1f1;}
   text-shadow: 0 2px 1px rgba(70, 40, 130, 0.8);
 }
 
+.panel.expanded .panel-heading h4 {
+  display: inline-block;
+  width: 97%;
+}
+
 .panel-body {
   padding-top: 5px;
 }
@@ -176,12 +181,23 @@ h3, h4, h5, h6 {color: #f1f1f1;}
   float: left;
 }
 
-.panel-heading h4 .heading-text {
+.panel-heading h4 .heading-text, 
+.panel-heading .print-lnk {
   display: none;
 }
 
 .panel.expanded .panel-heading h4 .heading-text {
-  display: block;
+  display: inline;
+}
+
+.panel.expanded .panel-heading .print-lnk {
+  color: #f1f1f1;
+  display: inline;
+  font-size: 18px;
+}
+
+.panel-heading .print-lnk span {
+  float: right;
 }
 
 .panel .table tr:last-child {
@@ -195,16 +211,8 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 
 }
 
-.panel .table tr td {
-  padding: 5px 8px;
-}
-
-.panel .table tr:last-child td {
-
-}
-
 .form-horizontal {
-  overflow: hidden;
+/*  overflow: hidden;*/
   padding: 0;
 }
 
@@ -222,7 +230,8 @@ h3, h4, h5, h6 {color: #f1f1f1;}
 }
 
 .form-horizontal #invoice-form {
-  overflow: hidden;
+  clear: both;
+/*  overflow: hidden;*/
 }
 
 #invoice-form div {
@@ -261,8 +270,9 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 
 #payform.expanded .paydata-row {
   background-color: rgb(238,163,57);
+  float: left;
   margin-bottom: 5px;
-  overflow: hidden;
+  width: 100%;
 }
 
 #payform.expanded .form-horizontal .form-group.paydata:first-child, 
@@ -328,7 +338,8 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 /*    width: 100%;  */
 }
 
-.form-group input, .form-group select {
+/*.form-group select,*/
+.form-group input{
   background-image: none;
   border: 1px solid #CCCCCC;
   -webkit-border-radius: 4px;
@@ -347,6 +358,12 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   -webkit-box-shadow: 2px 2px 2px 0px rgba(37, 37, 37, 0.75);
   -moz-box-shadow:    2px 2px 2px 0px rgba(37, 37, 37, 0.75);
   box-shadow:         2px 2px 2px 0px rgba(37, 37, 37, 0.75);
+}
+
+.chosen-search input {
+  -webkit-box-shadow: none;
+  -moz-box-shadow:    none;
+  box-shadow:         none;
 }
 
 .form-group .error input {

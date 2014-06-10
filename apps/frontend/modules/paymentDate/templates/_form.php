@@ -24,12 +24,14 @@
         </label>-->
         <?php //TODO: open edit window on modal -> on save close modal and return to paymentDate->indexSuccess ?>
       <div class="panel panel-default" id="payform">
-        <div class="panel-heading text-center expand" data-toggle="tooltip" data-placement="top" title="Abrir / Cerrar Formulario">
-          <h4>
+        <div class="panel-heading text-center expand">
+          <h4  data-toggle="tooltip" data-placement="top" title="Abrir / Cerrar Formulario">
             <span class="glyphicon glyphicon-calendar"></span>
             <span class="heading-text"><?php echo __($form->formTitle . ' Fecha de Pago')?></span>
-            <!--<span class="glyphicon glyphicon-arrow-left"></span>-->
           </h4>
+            <a class="print-lnk" href="#" onclick="window.print();return false;">
+              <span class="glyphicon glyphicon-print" data-toggle="tooltip" data-placement="right" title="Imprimir Formulario"></span>
+            </a>
         </div>
         <div class="panel-body">
           <form class="form-horizontal" action="<?php echo url_for('@paymentDate') ?>" method="post">
@@ -39,7 +41,7 @@
                 <?php echo $form['supplier_id']->renderLabel(__('Proveedor:'), array('class' => 'col-md-3'))?> 
                 <?php echo $form['supplier_id']->renderError()?> 
                 <div class="col-md-9">
-                  <?php echo $form['supplier_id'] ?>
+                  <?php echo $form['supplier_id']->render(array('class' => 'chzn-select')) ?>
                 </div>
               </div>
               <div class="form-group paydata col-md-4">
@@ -70,7 +72,7 @@
                 <div>
                   <div class="form-group">
                     <?php echo $form['new'][0]['building_id']->renderLabel('Edificio:', array('class' => 'col-md-5')) ?>  <?php echo $form['new'][0]['building_id']->renderError() ?>
-                    <div class="col-md-7"><?php echo $form['new'][0]['building_id'] ?></div>
+                    <div class="col-md-7"><?php echo $form['new'][0]['building_id']->render(array('class' => 'chzn-select')) ?></div>
                   </div>
                   <div class="form-group">
                     <?php echo $form['new'][0]['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-5')) ?>  <?php echo $form['new'][0]['number']->renderError() ?>
@@ -90,7 +92,7 @@
               <div>
                 <div class="form-group">
                   <?php echo $invoice['building_id']->renderLabel(__('Edificio'), array('class' => 'col-md-5')) ?>  <?php echo $invoice['building_id']->renderError() ?>
-                  <div class="col-md-7"><?php echo $invoice['building_id'] ?></div>
+                  <div class="col-md-7"><?php echo $invoice['building_id']->render(array('class' => 'chzn-select')) ?></div>
                 </div>
                 <div class="form-group">
                   <?php echo $invoice['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-5')) ?>  <?php echo $invoice['number']->renderError() ?>
@@ -143,6 +145,8 @@
             <?php endif ?>
             </div>
             <input class="pull-right form-submit" type="submit" value="<?php echo __('Guardar')?>" />            
+            <!--<input type="button" value=" Print this page " onclick="window.print();return false;" />-->
+
           </form>
         </div>
                         <?// var_dump($form->getObject()->getInvoices());?>

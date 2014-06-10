@@ -1,5 +1,6 @@
 <?php slot('body_class') ?>class="<?php echo strtolower($sf_params->get('module')) . "-" . $sf_params->get('action');?>"<?php end_slot(); ?>
 <?php slot('sectionTitle') ?><?php echo __('Agenda de Pagos a Proveedores')?><?php end_slot(); ?>
+<? !isset($form->title)?'Editar': $form->title;?>
   <div class="row">
     <div id="right-wrapper" class="col-md-1">
       <? include_partial('paymentDate/form', array('form' => $form)) ?>
@@ -114,4 +115,16 @@ $(document).ready(function(){
     isActive = !isActive;    
   });
 });*/ 
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $(".chzn-select").chosen({
+      allow_single_deselect:true,
+      disable_search_threshold: 10,
+      no_results_text: "No hay resultados",
+      search_contains: true,
+      width: "85%"
+    });
+  });
 </script>
