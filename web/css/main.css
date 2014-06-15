@@ -294,6 +294,12 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   font-size: 12px;
 }
 
+#payform.expanded .form-horizontal .form-group .delete-invoice label:hover {
+  color: red !important;
+  font-size: 12px;
+  text-shadow: 0 1px 1px rgba(120, 0, 0, 0.5);
+}
+
 #payform.expanded .form-horizontal .form-group input.input-hide {
   display: none;
 }
@@ -334,7 +340,7 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 
 
 .form-group input {
-    padding: 6px 12px;
+    padding: 3px 12px;
 /*    width: 100%;  */
 }
 
@@ -372,6 +378,20 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   -webkit-box-shadow: 2px 2px 2px 0px rgba(0, 0, 255, 0.75);
   -moz-box-shadow:    2px 2px 2px 0px rgba(0, 0, 255, 0.75);
   box-shadow:         2px 2px 2px 0px rgba(0, 0, 255, 0.75);
+}
+
+
+.chosen-container {
+  display: inline-block !important;
+}
+
+.chosen-drop {
+  display: block !important;
+}
+
+.chosen-results {
+  clear: both;
+  max-height: 245px !important; 
 }
 
 /*********************/

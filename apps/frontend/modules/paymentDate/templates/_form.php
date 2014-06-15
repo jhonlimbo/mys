@@ -70,15 +70,15 @@
               <?php if ($form->getObject()->isNew() && !$form->hasErrors()): ?>
               <script type="text/javascript">newfieldscount = 1;</script>
                 <div>
-                  <div class="form-group">
-                    <?php echo $form['new'][0]['building_id']->renderLabel('Edificio:', array('class' => 'col-md-5')) ?>  <?php echo $form['new'][0]['building_id']->renderError() ?>
-                    <div class="col-md-7"><?php echo $form['new'][0]['building_id']->render(array('class' => 'chzn-select')) ?></div>
+                  <div class="form-group col-md-4">
+                    <?php echo $form['new'][0]['building_id']->renderLabel('Edificio:', array('class' => 'col-md-3')) ?>  <?php echo $form['new'][0]['building_id']->renderError() ?>
+                    <div class="col-md-9"><?php echo $form['new'][0]['building_id']->render(array('class' => 'chzn-select')) ?></div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-md-3">
                     <?php echo $form['new'][0]['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-5')) ?>  <?php echo $form['new'][0]['number']->renderError() ?>
                     <div class="col-md-7"><?php echo $form['new'][0]['number'] ?></div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-md-3">
                     <?php echo $form['new'][0]['value']->renderLabel(__('Importe:'), array('class' => 'col-md-5')) ?>  <?php echo $form['new'][0]['value']->renderError() ?>
                     <div class="col-md-7"><?php echo $form['new'][0]['value'] ?></div>
                   </div>
@@ -90,19 +90,19 @@
             <?php foreach ($form['Invoices'] as $invoice):?>
             <?php $invoiceValues = $invoice->getValue(); ?>
               <div>
-                <div class="form-group">
-                  <?php echo $invoice['building_id']->renderLabel(__('Edificio'), array('class' => 'col-md-5')) ?>  <?php echo $invoice['building_id']->renderError() ?>
-                  <div class="col-md-7"><?php echo $invoice['building_id']->render(array('class' => 'chzn-select')) ?></div>
+                <div class="form-group col-md-4">
+                  <?php echo $invoice['building_id']->renderLabel(__('Edificio'), array('class' => 'col-md-3')) ?>  <?php echo $invoice['building_id']->renderError() ?>
+                  <div class="col-md-9"><?php echo $invoice['building_id']->render(array('class' => 'chzn-select')) ?></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-3">
                   <?php echo $invoice['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-5')) ?>  <?php echo $invoice['number']->renderError() ?>
                   <div class="col-md-7"><?php echo $invoice['number'] ?></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group col-md-3">
                   <?php echo $invoice['value']->renderLabel(__('Importe:'), array('class' => 'col-md-5')) ?>  <?php echo $invoice['value']->renderError() ?>
                   <div class="col-md-7"><?php echo $invoice['value'] ?></div>
                 </div>
-                <div class="form-group delete-wrapper">
+                <div class="form-group delete-wrapper col-md-2">
                   <div class="delete-invoice">
                     <?php echo $invoice['delete']->render(array('class' => 'input-hide')) ?>
                     <?php echo $invoice['delete']->renderLabel(__('Eliminar'), array('class' => 'cursor-pointer', 'id' => 'delete-'.$invoice['id']->getValue())) ?>
@@ -116,11 +116,11 @@
             <?php if(isset($form['new']) && $form->hasErrors()): ?>
               <?php foreach($form['new'] as $newForm ): ?>
                 <div>
-                  <div class="form-group">
-                    <?php echo $newForm['building_id']->renderLabel('Edificio:', array('class' => 'col-md-5')) ?>  <?php echo $newForm['building_id']->renderError() ?>
-                    <div class="col-md-7"><?php echo $newForm['building_id'] ?></div>
+                  <div class="form-group col-md-4">
+                    <?php echo $newForm['building_id']->renderLabel('Edificio:', array('class' => 'col-md-3')) ?>  <?php echo $newForm['building_id']->renderError() ?>
+                    <div class="col-md-9"><?php echo $newForm['building_id'] ?></div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-md- col-md-3">
                     <?php echo $newForm['number']->renderLabel(__('Factura') . ' Nº:', array('class' => 'col-md-5')) ?>  <?//php echo $newForm['number']->renderError() ?>
                     <?php if ($newForm['number']->hasError()): ?>
                       <div class="col-md-7 error">
@@ -130,7 +130,7 @@
                       <?php echo $newForm['number'] ?>
                     </div>             
                   </div>
-                  <div class="form-group">
+                  <div class="form-group col-md-3">
                     <?php echo $newForm['value']->renderLabel(__('Importe:'), array('class' => 'col-md-5')) ?>  <?//php echo $newForm['value']->renderError() ?>                  
                     <?php if ($newForm['value']->hasError()): ?>
                       <div class="col-md-7 error">

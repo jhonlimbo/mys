@@ -21,6 +21,15 @@ $(document).ready(function(){
     e.preventDefault();
     $('div#invoice-form').append(addNewField(newfieldscount));
     newfieldscount = newfieldscount + 1;
+
+    $(".chzn-select").chosen({
+      allow_single_deselect:true,
+      disable_search_threshold: 10,
+      no_results_text: "No hay resultados",
+      search_contains: true,
+      width: "100%"
+    });
+
     $('.removenew').unbind('click');
     removeNew();
   });

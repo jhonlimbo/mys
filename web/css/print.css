@@ -118,9 +118,6 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   margin-left: 5px;
 }
 
-
-
-
 .chosen-single span {
 
 }
@@ -136,8 +133,6 @@ input.hasDatepicker {
   background-color: transparent !important;
 }
 
-
-
 .form-group.paydata.col-md-5 { 
   float: left !important;
   width: 45% !important;
@@ -149,8 +144,6 @@ input.hasDatepicker {
   width: 40% !important;
   text-align: right;
 }
-
-
 
 .form-group.paydata label, 
 .form-group.paydata input, 

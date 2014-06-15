@@ -87,36 +87,6 @@ $(document).ready(function(){
 }); 
 </script> 
 
-
-
-
-<script>
-//para hacer el script de arriba, luego borrar
-/*
-isLarge = false;
-isActive = false;
-
-$(document).ready(function(){
-  if ($('.error')[0] || $('#payment_date_Invoices_0_number').length){
-    $("#payform").width( '990px' );
-    $('#payform').toggleClass('expanded', isLarge == false);
-    isLarge = true;
-  }
-
-
-  $('.expand').click(function(){
-    $("#payform").animate({left:(isLarge ? '15' : '15'),'min-height':(isLarge ? '0' : '159px'),width:(isLarge ? '34px' : '990px')});
-    $('#payform').toggleClass('expanded', isLarge == false);
-    isLarge = !isLarge;    
-  });
-
-  $('.highlight-delete').click(function(){
-    $('.highlight-delete').toggleClass('toto', isActive == false);
-    isActive = !isActive;    
-  });
-});*/ 
-</script>
-
 <script type="text/javascript">
   $(function(){
     $(".chzn-select").chosen({
@@ -124,7 +94,7 @@ $(document).ready(function(){
       disable_search_threshold: 10,
       no_results_text: "No hay resultados",
       search_contains: true,
-      width: "85%"
+      width: "100%"
     });
   });
 </script>

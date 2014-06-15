@@ -32,12 +32,10 @@ class PaymentDateForm extends BasePaymentDateForm {
             'order_by' => array('name', 'asc')
           ));
 
-//    Validations
-//    $this->validatorSchema->setPostValidator(new sfValidatorCallback(array('callback' => array($this, 'valForm'))));
+//  Validations
+    $this->validatorSchema->setPostValidator(new sfValidatorCallback(array('callback' => array($this, 'valForm'))));
 
   }
-
-
 
   public function valForm($validator, $values) {
  //   var_dump($this->defaults['new']['0']);
@@ -48,11 +46,15 @@ class PaymentDateForm extends BasePaymentDateForm {
 //    die;
 
     //Validate Weekend
+    //Validation not needed.
+/*
     $evDate = (date('N', strtotime($values['date'])) >= 6);
     if($evDate ==  true){
       $error = new sfValidatorError($validator, 'La fecha de pago debe ser un dia laboral');
       throw new sfValidatorErrorSchema($validator, array('date' => $error));
     }
+  */
+
     //Validate if supplier already has a payment date for that month
     //TODO On paydate edit, When sumbit throws an error takes the paydate like new an on second submit throws that the supplier already have a paydate fot that month
     //Query to db to bring al dates of supplier_id
@@ -68,25 +70,15 @@ class PaymentDateForm extends BasePaymentDateForm {
       // Format pay date from form to Year-month
       $formatedFormDate = date('Y-m',strtotime($values['date']));
 
-    //if($this->isNew()){
-    //  $paymentDates = Doctrine_Core::getTable('PaymentDate')->getSupplierXdate($values['supplier_id']);
-      
-    //  $formatedDbDates = array();
-    //  foreach ($paymentDates as $dbDates) {
-    //    $formatedDbDates[] = date('Y-m',strtotime($dbDates->date));
-    //  }
-    //}
-    //  $formatedFormDate = date('Y-m',strtotime($values['date']));
-      
+    if($this->isNew()){
 
 
-
-/*
       if(in_array($formatedFormDate, $formatedDbDates)){
-        $error = new sfValidatorError($validator, 'Este proveedor ya tiene asignada una fecha de pago para este mes');
-        throw new sfValidatorErrorSchema($validator, array('date' => $error));
+//        $error = new sfValidatorError($validator, 'Este proveedor ya tiene asignada una fecha de pago para este mes');
+        $this->getSupplierId()->setFlash('error', 'Este proveedor ya tiene asignada una fecha de pago para este mes');
+//        throw new sfValidatorErrorSchema($validator, array('supplier_id' => $error));
       }    
-    }*/
+    }
    return $values;
   }
 

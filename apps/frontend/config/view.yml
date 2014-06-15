@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [bootstrap.min.css,bootstrap-theme.min.css,calendar.css,smoothness/jquery-ui-1.10.4.custom.min.css,chosen.css,main.css,print: { media: print }]
 
-  javascripts:    [jquery.1.10.2.js,jquery-ui-1.10.4.custom.js,/js/i18n/ui.datepicker-es.js,bootstrap.min.js,underscore-min.js,jstz.min.js,/js/language/es-AR.js,payment.date.form.js,chosen.jquery.js]
+  javascripts:    [jquery.1.10.2.js,jquery-ui-1.10.4.custom.js,chosen.jquery.js,/js/i18n/ui.datepicker-es.js,bootstrap.min.js,underscore-min.js,jstz.min.js,/js/language/es-AR.js,payment.date.form.js]
 
   has_layout:     true
   layout:         layout
