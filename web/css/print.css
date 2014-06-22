@@ -2,8 +2,17 @@
 /*******PANELS********/
 /*********************/
 #sfWebDebug,
-.navbar, .col-md-11, .panel-heading, .panel-footer, .delete-paydate, .delete-invoice *, #payform.expanded .form-horizontal .form-group input.input-hide, .form-submit, .modal * {
-  display: none;
+.navbar, 
+.col-md-11, 
+.panel-heading, 
+.panel-footer, 
+.delete-paydate, 
+.delete-invoice *, 
+.chosen-drop, 
+#payform.expanded .form-horizontal .form-group input.input-hide, 
+.form-submit, 
+.modal * {
+  display: none !important;
 }
 
 #payform {
@@ -96,25 +105,22 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 }
 
 #invoice-form .form-group input {
-  background-image: none;
-  border: 1px solid #CCCCCC;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-  -moz-box-shadow:    0 1px 1px rgba(0, 0, 0, 0.075) inset;
-  box-shadow:         0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  background-image: none !important;
+  background-color: transparent;
+  border: none !important;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+  -webkit-box-shadow: 0 none !important;
+  -moz-box-shadow:    0 none !important;
+  box-shadow:         0 none !important;
   color: #555555;
   display: block;
-  font-size: 12px;
+  font-size: 18px;
   height: 20px;
   line-height: 1.42857;
   padding: 6px 12px;
-  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
   vertical-align: middle;
-  -webkit-box-shadow: 2px 2px 2px 0px rgba(37, 37, 37, 0.75);
-  -moz-box-shadow:    2px 2px 2px 0px rgba(37, 37, 37, 0.75);
-  box-shadow:         2px 2px 2px 0px rgba(37, 37, 37, 0.75);
   margin-left: 5px;
 }
 
@@ -180,3 +186,7 @@ overflow: hidden;
   font-size: 22px;
 }
 
+.col-md-9 .chosen-container {
+  line-height: 36px;
+  margin-left: 8px; 
+}

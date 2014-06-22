@@ -17,7 +17,7 @@
           <div class="btn-group">
             <button class="btn btn-warning" data-calendar-view="year"><?php echo __('Year')?></button>
             <button class="btn btn-warning active" data-calendar-view="month"><?php echo __('Month')?></button>
-            <button class="btn btn-warning" data-calendar-view="week"><?php echo __('Week')?></button>
+            <!--<button class="btn btn-warning" data-calendar-view="week"><?php //echo __('Week')?></button>-->
             <!--<button class="btn btn-warning" data-calendar-view="day">Day</button>-->
           </div>
         </div>

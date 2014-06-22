@@ -1,4 +1,22 @@
-body {background-color: rgba(241,241,241,0.8)}
+body {
+/*  background-color: rgba(241,241,241,0.8)*/
+/*  background-color: rgba(45,71,84,0.8);*/
+background-image: -webkit-gradient(
+  linear,
+  left top,
+  left bottom,
+  color-stop(0.1, #2D4854),
+  color-stop(0.77, #AFCCDB),
+  color-stop(1, #2D4954)
+);
+background-image: -o-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #2D4954 100%);
+background-image: -moz-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #2D4954 100%);
+background-image: -webkit-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #2D4954 100%);
+background-image: -ms-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #2D4954 100%);
+background-image: linear-gradient(to bottom, #2D4854 10%, #AFCCDB 77%, #2D4954 100%);
+
+}
+
 .glyphicon {  text-shadow: 0 2px 1px rgba(0, 0, 130, 0.5);}
 .red {color: #e9594d;}
 a:hover.red {color: #bf583d;}
@@ -17,6 +35,10 @@ h3 *, h4 *, h5 *, h6 * {color: #f1f1f1;}
 
 .highlight-delete.glyphicon.glyphicon-ok {
   margin-left: 3px;
+}
+
+.content-wrapper {
+
 }
 
 /*********************/
@@ -126,7 +148,8 @@ h3 *, h4 *, h5 *, h6 * {color: #f1f1f1;}
 }
 
 .panel-default > .panel-heading {
-  background-image: -webkit-gradient(
+
+/*  background-image: -webkit-gradient(
     linear,
     left top,
     left bottom,
@@ -138,6 +161,19 @@ h3 *, h4 *, h5 *, h6 * {color: #f1f1f1;}
   background-image: -webkit-linear-gradient(bottom, rgb(100, 120, 158) 56%, rgb(90, 111, 150) 80%);
   background-image: -ms-linear-gradient(bottom, rgb(100, 120, 158) 56%, rgb(90, 111, 150) 80%);
   background-image: linear-gradient(to bottom, rgb(100, 120, 158) 56%, rgb(90, 111, 150) 80%);
+  */
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.1, #2D4854),
+    color-stop(1, #AFCCDB)
+  );
+  background-image: -o-linear-gradient(bottom, #2D4854 10%, #AFCCDB 100%);
+  background-image: -moz-linear-gradient(bottom, #2D4854 10%, #AFCCDB 100%);
+  background-image: -webkit-linear-gradient(bottom, #2D4854 10%, #AFCCDB 100%);
+  background-image: -ms-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%100%);
+  background-image: linear-gradient(to bottom, #2D4854 10%, #AFCCDB 77% 100%);
 }
 
 .panel-heading {
@@ -439,6 +475,7 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 
 #calendar span[data-cal-date] {
   color: #000;
+  font-weight: bold;
   margin-top: 5px;
   margin-right: 5px;
 }
@@ -448,7 +485,6 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 }
 
 .error_list,
-.date-title,
 #calendar .cal-day-weekend span[data-cal-date],
 #calendar .cal-day-holiday span[data-cal-date] {
   color: #8B0000 !important;
@@ -482,14 +518,104 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   width: 100%;
 }
 
+#calendar .total-events {
+  background-color: #17741e;
+  color: #fff;
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 40px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius:  50px;
+  border-radius:  50px;
+  position: absolute;
+  top: 35%;
+  right: 1%;
+  opacity: 0.2;
+  filter: alpha(opacity=20); /* For IE8 and earlier */
+  z-index: 1;
+
+}
+
 .cal-week-box .cal-column,
 .cal-row-fluid .cal-cell1, 
 .cal-row-fluid .cal-cell1.cell-month {
   width: 20%;
 }
 
+.cal-row-fluid:hover, 
+.cal-row-fluid.cal-row-head .cell-month:hover {
+  background-color: transparent !important;
+  cursor: inherit;
+}
+
+.date-title,
+.cell-month {
+  color: #fafafa;
+}
+
 .cal-row-fluid .cal-cell1 .cal-month-day {
   height: 110px;
+}
+
+#cal-week-box {
+  top: 25%;
+  left: -80px;
+  z-index: -1;
+  background-color: rgba(250,250,250,0.3);
+  font-weight: bold;
+
+}
+
+.cal-month-box {
+  border: 1px solid blue;
+  box-shadow: inset 0 0 10px 4px #1178ab;
+  padding: 10px;
+}
+
+.cal-month-box, 
+.cal-week-box {
+  background-color: #fafafa;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;  
+}
+
+.cal-month-box .cal-before-eventlist:first-child {
+  -webkit-border-radius: 20px 20px 0 0;
+  -moz-border-radius: 20px 20px 0 0;
+  border-radius: 20px 20px 0 0;      
+}
+ 
+.cal-month-box .cal-before-eventlist:first-child .cal-cell:first-child {
+  -webkit-border-radius: 20px 0 0 0;
+  -moz-border-radius: 20px 0 0 0;
+  border-radius: 20px 0 0 0;    
+}
+
+.cal-month-box .cal-before-eventlist:first-child .cal-cell:last-child {
+  -webkit-border-radius: 0 20px 0 0;
+  -moz-border-radius: 0 20px 0 0;
+  border-radius: 0 20px 0 0;    
+}
+
+.cal-month-box .cal-before-eventlist:last-child .cal-cell:first-child {
+  -webkit-border-radius: 0 0 0 20px;
+  -moz-border-radius: 0 0 0 20px;
+  border-radius: 0 0 0 20px;    
+}
+
+.cal-month-box .cal-before-eventlist:last-child .cal-cell:last-child {
+  -webkit-border-radius: 0 0 20px 0;
+  -moz-border-radius: 0 0 20px 0;
+  border-radius: 0 0 20px 0;    
+}
+
+#calendar #cal-slide-box .event {
+  margin-top: 5px;
 }
 
 #calendar #cal-slide-box .event.event-important {background-color: #27730B;}
@@ -519,5 +645,20 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 .cal-week-box .cal-offset3, .cal-row-fluid .cal-offset3, .cal-row-fluid .cal-offset3:first-child {margin-left: 60%;}
 .cal-week-box .cal-offset4, .cal-row-fluid .cal-offset4, .cal-row-fluid .cal-offset4:first-child {margin-left: 80%;}
 
+#cal-slide-content,
+#cal-slide-content:hover {
+  background-image: none;
+  background-color: #4b6773;
+  border-radius: 10px;
+  padding-left: 50px;
 
+}
 
+.btn-primary {
+  background-image: none;
+  background-color: #637f8c;
+}
+
+.btn-primary:hover {
+  background-color: #4e6b77;
+}

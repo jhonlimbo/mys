@@ -97,7 +97,7 @@ if(!String.prototype.formatNum) {
 				enable:       1
 			},
 			week:  {
-				enable: 1
+				enable: 0
 			},
 			day:   {
 				enable: 0

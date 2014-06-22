@@ -91,7 +91,7 @@
             <?php $invoiceValues = $invoice->getValue(); ?>
               <div>
                 <div class="form-group col-md-4">
-                  <?php echo $invoice['building_id']->renderLabel(__('Edificio'), array('class' => 'col-md-3')) ?>  <?php echo $invoice['building_id']->renderError() ?>
+                  <?php echo $invoice['building_id']->renderLabel(__('Edificio:'), array('class' => 'col-md-3')) ?>  <?php echo $invoice['building_id']->renderError() ?>
                   <div class="col-md-9"><?php echo $invoice['building_id']->render(array('class' => 'chzn-select')) ?></div>
                 </div>
                 <div class="form-group col-md-3">
