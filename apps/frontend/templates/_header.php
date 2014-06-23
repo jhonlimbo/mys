@@ -29,11 +29,11 @@
               <?php echo link_to(__('ABM Proveedores'), sfLinkCrossApp::linkTo('backend','supplier/index'))?>
             </li>
             <li>
-                <a href="#"><?php echo __('Pagos')?> <i class="glyphicon glyphicon-chevron-right"></i></a>
-                <ul class="dropdown-menu sub-menu">
-                  <li>
-                    <?php echo link_to(__('Fechas de Pago'), sfLinkCrossApp::linkTo('frontend','paymentDate/index'))?>
-                  </li>
+              <a href="#"><?php echo __('Pagos')?> <i class="glyphicon glyphicon-chevron-right"></i></a>
+              <ul class="dropdown-menu sub-menu">
+                <li>
+                  <?php echo link_to(__('Calendario de Pagos'), sfLinkCrossApp::linkTo('frontend','paymentDate/index'))?>
+                </li>
 
 
                     <!--<li><a href="#">Facturas</a></li>
@@ -43,7 +43,7 @@
                     <li><a href="#">Por Poveedor</a></li>
                     <li><a href="#">Por Edificio</a></li>
                     <li><a href="#">Por Fecha de pago</a></li>-->
-                </ul>
+              </ul>
             </li>
             <li class="divider"></li>
             <li class="dropdown-header">Nav header</li>
@@ -71,6 +71,17 @@
             <li class="divider"></li>
             <li class="dropdown-header">Nav header</li>
             <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <?php echo link_to(__('Fechas de Pago').' <b class="caret"></b>', sfLinkCrossApp::linkTo('backend','paymentDate/index'),array('data-toggle'=>'dropdown', 'class'=>'dropdown-toggle'))?>
+          <ul class="dropdown-menu">
+            <li>
+              <?php echo link_to(__('ABM Fechas de Pago'), sfLinkCrossApp::linkTo('backend','paymentDate/index'))?>
+            </li>
+            <li>
+              <?php echo link_to(__('ABM Facturas'), sfLinkCrossApp::linkTo('backend','invoice/index'))?>
+            </li>
           </ul>
         </li>
       </ul>

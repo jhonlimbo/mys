@@ -52,14 +52,14 @@ Invoice:
       type: one
       foreignType: many
       onDelete: CASCADE
- #   Supplier:
- #     class: Supplier
- #     local: supplier_id
- #     foreign: id
- #     type: one
- #     foreignType: many
- #     onDelete: CASCADE
- #     onUpdate: CASCADE
+    Supplier:
+      class: Supplier
+      local: supplier_id
+      foreign: id
+      type: one
+      foreignType: many
+      onDelete: CASCADE
+      onUpdate: CASCADE
 
 PaymentDate:
   columns:

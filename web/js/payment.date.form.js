@@ -12,7 +12,7 @@ function addNewField(num){
 var removeNew = function(){
   $('.removenew').click(function(e){
     e.preventDefault();
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
   })
 };
 

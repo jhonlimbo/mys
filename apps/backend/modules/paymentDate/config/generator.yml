@@ -2,33 +2,32 @@ generator:
 #  class: sfDoctrineGenerator
   class: mpRealtyAdminDoctrineGenerator
   param:
-    model_class:           Building
+    model_class:           PaymentDate
 #    theme:                 admin
     theme:                 mpReality
     non_verbose_templates: true
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          building
+    route_prefix:          payment_date
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
     config:
       actions: ~
       fields:
-        name: { label: Dirección }
-
+        date: { label: Fecha de Pago }
+        supplier: { label: Proveedor }
+        total_value: { label: Importe Total }
+        paid: { labe: Abonado }
       list:
-        title: Listado de Edificios
-        display: [=name]
-        sort: [name, asc]
+        title: Listado Pagos
+        display: [=date, supplier, total_value, paid]
+        sort: [date, desc]
         max_per_page: 10
-
       filter:  ~
       form:    ~
-
       edit:
-        title: Editando Edificio %%name%%
-
+        title: Editando Fecha de pago %%date%% | %%supplier_id%%
       new:
-        title: Nuevo Edificio
+        title: Nueva Fecha de Pago

@@ -1,6 +1,7 @@
 body {
 /*  background-color: rgba(241,241,241,0.8)*/
 /*  background-color: rgba(45,71,84,0.8);*/
+/*
 background-image: -webkit-gradient(
   linear,
   left top,
@@ -14,7 +15,7 @@ background-image: -moz-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #2D4954
 background-image: -webkit-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #2D4954 100%);
 background-image: -ms-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #2D4954 100%);
 background-image: linear-gradient(to bottom, #2D4854 10%, #AFCCDB 77%, #2D4954 100%);
-
+*/
 }
 
 .glyphicon {  text-shadow: 0 2px 1px rgba(0, 0, 130, 0.5);}
@@ -38,7 +39,19 @@ h3 *, h4 *, h5 *, h6 * {color: #f1f1f1;}
 }
 
 .content-wrapper {
-
+background-image: -webkit-gradient(
+  linear,
+  left top,
+  left bottom,
+  color-stop(0.1, #2D4854),
+  color-stop(0.77, #AFCCDB),
+  color-stop(1, #FFFFFF)
+);
+background-image: -o-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #FFFFFF 100%);
+background-image: -moz-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #FFFFFF 100%);
+background-image: -webkit-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #FFFFFF 100%);
+background-image: -ms-linear-gradient(bottom, #2D4854 10%, #AFCCDB 77%, #FFFFFF 100%);
+background-image: linear-gradient(to bottom, #2D4854 10%, #AFCCDB 77%, #FFFFFF 100%);
 }
 
 /*********************/
@@ -469,7 +482,7 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 #calendar .events-list {
   max-height: none;
   padding-left: 5px;
-  top: 28px;
+  top: 10px;
   width: 100%;
 }
 
@@ -552,6 +565,11 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   cursor: inherit;
 }
 
+.cal-row-head .cal-cell1.cell-month {
+  font-size: 16px;
+  padding: 5px 0 2px 0;
+}
+
 .date-title,
 .cell-month {
   color: #fafafa;
@@ -571,9 +589,9 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 }
 
 .cal-month-box {
-  border: 1px solid blue;
-  box-shadow: inset 0 0 10px 4px #1178ab;
-  padding: 10px;
+  border: 1px solid #5a7683 !important;
+  box-shadow: inset 0 0 10px 2px #1178ab;
+  padding: 8px;
 }
 
 .cal-month-box, 

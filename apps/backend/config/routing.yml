@@ -1,3 +1,21 @@
+payment_date:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                PaymentDate
+    module:               paymentDate
+    prefix_path:          /paymentDate
+    column:               id
+    with_wildcard_routes: true
+
+invoice:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Invoice
+    module:               invoice
+    prefix_path:          /invoice
+    column:               id
+    with_wildcard_routes: true
+
 supplier:
   class: sfDoctrineRouteCollection
   options:

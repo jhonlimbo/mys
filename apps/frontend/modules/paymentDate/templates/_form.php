@@ -25,7 +25,7 @@
         <?php //TODO: open edit window on modal -> on save close modal and return to paymentDate->indexSuccess ?>
       <div class="panel panel-default" id="payform">
         <div class="panel-heading text-center expand">
-          <h4  data-toggle="tooltip" data-placement="top" title="Abrir / Cerrar Formulario">
+          <h4 data-toggle="tooltip" data-placement="top" title="Mostrar / Ocultar Formulario Fecha de Pago">
             <span class="glyphicon glyphicon-calendar"></span>
             <span class="heading-text"><?php echo __($form->formTitle . ' Fecha de Pago')?></span>
           </h4>
@@ -139,6 +139,12 @@
                     <?php endif; ?>
                       <?php echo $newForm['value'] ?>
                     </div>             
+                  </div>
+                  <div class="col-md-2">
+                    <a class="removenew" href="#" title="Eliminar Registro">
+                      <span class="glyphicon glyphicon-remove"></span>
+                      <span class="remove-text">Eliminar</span>
+                    </a>
                   </div>
                 </div>
             <?php endforeach ?>

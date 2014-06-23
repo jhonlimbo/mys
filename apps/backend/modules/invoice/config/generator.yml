@@ -1,0 +1,38 @@
+generator:
+  class: mpRealtyAdminDoctrineGenerator
+#  class: sfDoctrineGenerator
+  param:
+    model_class:           Invoice
+#    theme:                 admin
+    theme:                 mpReality
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          invoice
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        supplier: { label: Proveedor }
+        number: { label: Número }
+        value: { label: Importe }
+        date: { label: Fecha de Factura }
+        payment_date: { label: Fecha de Pago }
+        paid: { label: Abonada }
+        building: { label: Edificio }
+      list:
+        title: Listado de Facturas
+        display: [=supplier, number, value, date, payment_date, paid, building]
+        sort: [payment_date_id, desc]
+        max_per_page: 10
+
+      filter:
+        display: [supplier_id, date, paid, building_id, payment_date_id, number]
+      form:    ~
+      edit:
+        title: Editando Factura Nº: %%number%% | %%supplier_id%%
+      new:
+        title: Nueva Factura

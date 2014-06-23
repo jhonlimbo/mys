@@ -18,7 +18,8 @@ class PaymentDateTable extends Doctrine_Table {
   public function getOrdered() {
     $q = Doctrine_Query::create()
       ->from('PaymentDate p')
-      ->orderBy('p.date ASC');
+      ->leftJoin('p.Supplier s')
+      ->orderBy('p.date, s.name ASC');
 
     return $q->execute();
   }

@@ -12,5 +12,10 @@
     <?php echo $form['new'][$number]['value']->renderLabel(__('Importe:'), array('class' => 'col-md-5')) ?>  <?php echo $form['new'][$number]['value']->renderError() ?>
     <div class="col-md-7"><?php echo $form['new'][$number]['value'] ?></div>
   </div>
-  <a class="removenew col-md-2" href="#"><span class="glyphicon glyphicon-remove"></span><span class="remove-text">Eliminar</span></a>
+  <div class="col-md-2">
+    <a class="removenew" href="#" title="Eliminar Registro">
+      <span class="glyphicon glyphicon-remove"></span>
+      <span class="remove-text">Eliminar</span>
+    </a>
+  </div>
 </div>

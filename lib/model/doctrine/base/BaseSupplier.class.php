@@ -10,6 +10,7 @@
  * @property string $address
  * @property string $email
  * @property string $phone
+ * @property Doctrine_Collection $Invoice
  * @property Doctrine_Collection $PaymentDate
  * 
  * @method integer             getId()          Returns the current record's "id" value
@@ -17,12 +18,14 @@
  * @method string              getAddress()     Returns the current record's "address" value
  * @method string              getEmail()       Returns the current record's "email" value
  * @method string              getPhone()       Returns the current record's "phone" value
+ * @method Doctrine_Collection getInvoice()     Returns the current record's "Invoice" collection
  * @method Doctrine_Collection getPaymentDate() Returns the current record's "PaymentDate" collection
  * @method Supplier            setId()          Sets the current record's "id" value
  * @method Supplier            setName()        Sets the current record's "name" value
  * @method Supplier            setAddress()     Sets the current record's "address" value
  * @method Supplier            setEmail()       Sets the current record's "email" value
  * @method Supplier            setPhone()       Sets the current record's "phone" value
+ * @method Supplier            setInvoice()     Sets the current record's "Invoice" collection
  * @method Supplier            setPaymentDate() Sets the current record's "PaymentDate" collection
  * 
  * @package    MyS
@@ -65,6 +68,10 @@ abstract class BaseSupplier extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
+        $this->hasMany('Invoice', array(
+             'local' => 'id',
+             'foreign' => 'supplier_id'));
+
         $this->hasMany('PaymentDate', array(
              'local' => 'id',
              'foreign' => 'supplier_id'));

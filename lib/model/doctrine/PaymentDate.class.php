@@ -18,6 +18,10 @@ class PaymentDate extends BasePaymentDate {
     $this->date = date('d-m-Y');
   }
 */
+  public function __toString(){
+    return $this->getDate();
+  }
+
 
   public function save(Doctrine_Connection $conn = null) {
     sfApplicationConfiguration::getActive()->loadHelpers(array('Url'));
@@ -48,22 +52,26 @@ class PaymentDate extends BasePaymentDate {
  //                       4 => 'event-success',
  //                       5 => 'event-special'
  //                       );
-    $i = 0;
+    $i = 1;
     $k = 0;
     $out = array();
     foreach ($paymentDates as $eventJson) {
+//            echo $eventJson->getDate() . " " . $eventJson->getSupplier()->name . "<br/>";
       $out[] = array(
           'id' => $eventJson->getId(),
           'title' => $eventJson->getSupplier()->name,
           'url' => url_for('paymentDate/edit?id='.$eventJson->getId()),
-          'class' => ($i==5?'event-special':'event-important'),
-          'start' => strtotime($eventJson->getDate()) . '000',
-          'end' => strtotime($eventJson->getDate()) . '000',
+          'class' => ($i>5?'event-special':'event-important'),
+          'start' => strtotime($eventJson->getDate()) . '00' . $i,
+          'end' => strtotime($eventJson->getDate()) . '00' . $i,
           'total_value' => $eventJson->getTotalValue()
       );
+      $lastDate = $eventJson->getDate();
       $i++;
       $k++;
-      if($i==6 || $paymentDates[$k]->date !== $paymentDates[$k-1]->date){$i=0;}
+      if($paymentDates[$k]->date != $lastDate){$i=1;}
+      
+
     }
     return $out;
   }

@@ -2,7 +2,7 @@
 <?php slot('sectionTitle') ?><?php echo __('Agenda de Pagos a Proveedores')?><?php end_slot(); ?>
 <? !isset($form->title)?'Editar': $form->title;?>
   <div class="row">
-    <div id="right-wrapper" class="col-md-1">
+    <div id="left-wrapper" class="col-md-1">
       <? include_partial('paymentDate/form', array('form' => $form)) ?>
     </div>
     <div class="col-md-11">

@@ -15,6 +15,7 @@
  * @property boolean $paid
  * @property Building $Building
  * @property PaymentDate $PaymentDate
+ * @property Supplier $Supplier
  * 
  * @method integer     getId()              Returns the current record's "id" value
  * @method integer     getNumber()          Returns the current record's "number" value
@@ -26,6 +27,7 @@
  * @method boolean     getPaid()            Returns the current record's "paid" value
  * @method Building    getBuilding()        Returns the current record's "Building" value
  * @method PaymentDate getPaymentDate()     Returns the current record's "PaymentDate" value
+ * @method Supplier    getSupplier()        Returns the current record's "Supplier" value
  * @method Invoice     setId()              Sets the current record's "id" value
  * @method Invoice     setNumber()          Sets the current record's "number" value
  * @method Invoice     setValue()           Sets the current record's "value" value
@@ -36,6 +38,7 @@
  * @method Invoice     setPaid()            Sets the current record's "paid" value
  * @method Invoice     setBuilding()        Sets the current record's "Building" value
  * @method Invoice     setPaymentDate()     Sets the current record's "PaymentDate" value
+ * @method Invoice     setSupplier()        Sets the current record's "Supplier" value
  * 
  * @package    MyS
  * @subpackage model
@@ -109,5 +112,11 @@ abstract class BaseInvoice extends sfDoctrineRecord
              'local' => 'payment_date_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
+
+        $this->hasOne('Supplier', array(
+             'local' => 'supplier_id',
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE',
+             'onUpdate' => 'CASCADE'));
     }
 }
