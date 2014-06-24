@@ -28,11 +28,9 @@ class Invoice extends BaseInvoice {
   public function delete(Doctrine_Connection $conn = null) {
     sfApplicationConfiguration::getActive()->loadHelpers(array('Url'));
 
-
-
-    
     $result = parent::delete($conn);
 
     return $result;
   }
+  
 }

@@ -1,6 +1,6 @@
 generator:
-  class: mpRealtyAdminDoctrineGenerator
 #  class: sfDoctrineGenerator
+  class: mpRealtyAdminDoctrineGenerator
   param:
     model_class:           Invoice
 #    theme:                 admin
@@ -16,16 +16,17 @@ generator:
     config:
       actions: ~
       fields:
-        supplier: { label: Proveedor }
+        supplier: { label: Proveedor, is_real: true }
         number: { label: Número }
         value: { label: Importe }
         date: { label: Fecha de Factura }
-        payment_date: { label: Fecha de Pago }
+        payment_date: { label: Fecha de Pago, is_real: true }
         paid: { label: Abonada }
-        building: { label: Edificio }
+        building: { label: Edificio, is_real: true }
       list:
         title: Listado de Facturas
-        display: [=supplier, number, value, date, payment_date, paid, building]
+        display: [supplier, number, value, date, payment_date, paid, building]
+        table_method: doSelectJoin
         sort: [payment_date_id, desc]
         max_per_page: 10
 

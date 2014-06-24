@@ -17,13 +17,14 @@ generator:
       actions: ~
       fields:
         date: { label: Fecha de Pago }
-        supplier: { label: Proveedor }
+        supplier: { label: Proveedor, is_real: true  }
         total_value: { label: Importe Total }
         paid: { labe: Abonado }
       list:
         title: Listado Pagos
         display: [=date, supplier, total_value, paid]
         sort: [date, desc]
+        table_method: doSelectJoin
         max_per_page: 10
       filter:  ~
       form:    ~

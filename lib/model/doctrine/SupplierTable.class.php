@@ -7,13 +7,12 @@
  */
 class SupplierTable extends Doctrine_Table
 {
-    /**
-     * Returns an instance of this class.
-     *
-     * @return object SupplierTable
-     */
-    public static function getInstance()
-    {
-        return Doctrine_Core::getTable('Supplier');
-    }
+  /**
+   * Returns an instance of this class.
+   *
+   * @return object SupplierTable
+   */
+  public static function getInstance() {
+    return Doctrine_Core::getTable('Supplier');
+  }
 }

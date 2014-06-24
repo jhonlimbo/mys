@@ -36,6 +36,14 @@ class PaymentDateTable extends Doctrine_Table {
 
   }    
 
+  public static function doSelectJoin($query) {
+    $rootAlias = $query->getRootAlias();
+ 
+    return $query->select($rootAlias . '.*, s.name')
+      ->leftJoin($rootAlias . '.Supplier s');
+  }
+
+
 /*
   static public function updatePayDateTotalValue($payDateId, $deletedValue) {
     $q = Doctrine_Query::create()
