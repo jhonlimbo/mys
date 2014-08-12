@@ -216,3 +216,16 @@ overflow: hidden;
 
 
 
+#payform.expanded .total-paydate {
+  float: right;
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+#payform.expanded .total-paydate #paydateTotal {
+  border: 0 none;
+  font-size: 30px;
+  padding-right: 5px; 
+  padding-left: 5px;
+  width: 150px;
+}

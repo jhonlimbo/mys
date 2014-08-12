@@ -392,6 +392,7 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 }
 
 #payform.expanded .total-paydate #paydateTotal {
+  border: 0 none;
   padding-right: 5px; 
   padding-left: 5px;
   width: 150px;
