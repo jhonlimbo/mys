@@ -19,9 +19,9 @@ edit:
   url: /edit
   param: { module: paymentDate, action: edit }
 
-submit:
-  url: /submit
-  param: { module: paymentDate, action: index }
+#submit:
+#  url: /submit
+#  param: { module: paymentDate, action: index }
 
 # default rules
 homepage:

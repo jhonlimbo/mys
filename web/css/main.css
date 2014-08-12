@@ -199,6 +199,10 @@ background-image: linear-gradient(to bottom, #2D4854 10%, #AFCCDB 77%, #FFFFFF 1
   text-shadow: 0 2px 1px rgba(70, 40, 130, 0.8);
 }
 
+.panel.expanded {
+  width: 990px;
+}
+
 .panel.expanded .panel-heading h4 {
   display: inline-block;
   width: 97%;
@@ -318,7 +322,7 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 }
 
 #payform.expanded .paydata-row {
-  background-color: rgb(238,163,57);
+  background-color: rgb(200,200,200);
   float: left;
   margin-bottom: 5px;
   width: 100%;
@@ -356,7 +360,7 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 #payform.expanded .form-horizontal .form-group .delete-paydate {
   background-color: #f5f5f5;
   border-radius: 5px;
-  color: #428bca;
+  color: #ca480f;
   font-weight: bold;
   padding: 3px 5px;
 }
@@ -379,6 +383,18 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 
 #payform.expanded .form-group div {
 
+}
+
+#payform.expanded .total-paydate {
+  float: right;
+  font-size: 22px;
+  margin-top: 15px;
+}
+
+#payform.expanded .total-paydate #paydateTotal {
+  padding-right: 5px; 
+  padding-left: 5px;
+  width: 150px;
 }
 
 .form-submit {
@@ -669,8 +685,9 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
   background-color: #4b6773;
   border-radius: 10px;
   padding-left: 50px;
-
 }
+
+#cal-day-tick{display: none !important;}
 
 .btn-primary {
   background-image: none;
@@ -679,4 +696,26 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 
 .btn-primary:hover {
   background-color: #4e6b77;
+}
+
+
+
+
+/********************/
+/********BUGS********/
+/********************/
+.sf_admin_invoice .f_left.list_results {
+  margin-left: 20%;
+}
+
+.invoice-notice {
+  position: absolute;
+  top: 34px;
+  left: 40%;
+  background-color: rgba(20,20,150,0.4);
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
 }

@@ -11,6 +11,10 @@ TODO:
 - Si se agregan facturas a un proveedor y hay error, se pierden esos datos. (OK) controlar bien todas las validaciones
 - Eliminar una fecha de pago (frontend) (OK)
 - Actualizar valores del total de la fecha de pago al agregar una nueva factura (no suma la ultima) (actualizar event.json) (OK)
+- Si se elimina un fecha de pago, eliminarla tambien del calendario (actualizar event.json) (OK)
+- Si, hay error y se agrega una factura, esa nueva factura pisa la primer factura. si se agregan 2 pisan las 2 primeras y asi. (OK)
+
+
 
 - Eliminar una factura (frontend) (OK) Si se elimina una factura y se agrega otra al mismo tiempo, no se guarda la agregado
 - Formulario fecha de pago > javascript > en edicion de factura, cuando se borra una factura y se guarda, no se actualiza el total a cobrar por el proveedor - Accion DELETE
@@ -19,15 +23,24 @@ TODO:
 - En el popup de month la fecha del calendar agregar importes totales para proveedor y fecha
 
 - En edicion de fecha de pago hacer que el select de proveedor sea un input read only. (Evaluar si conviene que quede asi para poder editar tambien el proveedor)
-- Si, hay error y se agrega una factura, esa nueva factura pisa la primer factura. si se agregan 2 pisan las 2 primeras y asi. 
+
   Al hacer submit y agregar una factura el indice comienza desde cero. Dejo harcodeado newfieldscount en 50 (payment-date-form.js) para no pisar las facturas anteriores.
 
 - Validar duplicado de facturas. Evaluar respecto a mismo numero pero diferente año
 
-- Si se elimina un fecha de pago, eliminarla tambien del calendario (actualizar event.json)
-
 - Reportes
   Ver si se pueden generar los reportes a partir del calendar
+
+
+
+ADMIN GENERATOR
+===============
+INVOICE
+- Corregir estilos
+- Arreglar Filtros
+- arreglar buscador (no encuentra nada)
+- Cambiar funcionalidad de Abonado/No Abonado por ajax (http://symfony-world.blogspot.com.ar/search?updated-max=2010-06-25T00:16:00%2B02:00&max-results=3&start=42&by-date=false)
+
 
 
 

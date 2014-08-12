@@ -1,5 +1,5 @@
 /* web/js/payment-date-form.js */
-newfieldscount = 50;
+newfieldscount = 0;
 
 function addNewField(num){
   return $.ajax({
@@ -7,7 +7,18 @@ function addNewField(num){
     url: '/add?num='+num,
     async: false
   }).responseText;
-}
+}      
+
+  function calcTotalValue() {
+    totalValue = 0;
+    $(".invoice_value").each(
+      function(index, value) {
+        var invoice_value = parseFloat($(this).val()) || 0;
+        totalValue = totalValue + eval(invoice_value);
+      }
+    );
+    $("#paydateTotal").val(totalValue);
+  }
 
 var removeNew = function(){
   $('.removenew').click(function(e){
@@ -32,5 +43,15 @@ $(document).ready(function(){
 
     $('.removenew').unbind('click');
     removeNew();
+
+    $(".invoice_value").on({
+      keyup: calcTotalValue
+    });
   });
+
+  $(".invoice_value").on({
+    keyup: calcTotalValue
+  });
+
 });
+

@@ -18,8 +18,6 @@ class PaymentDateForm extends BasePaymentDateForm {
     $this->embedRelation('Invoices');
 
     $culture = sfContext::getInstance()->getUser()->getCulture();
-//    $this->widgetSchema['date'] = new sfWidgetFormI18nDate(array('culture'=>'es_AR'));
-//    $this->widgetSchema['date']= new sfWidgetFormDateJQueryUI(array("change_month" => true, "change_year" => true, 'culture' => $culture));
     $this->widgetSchema['date']= new sfWidgetFormDateJQueryUI();
     $this->widgetSchema['date']->setAttribute('readonly', 'readonly');
 
@@ -56,8 +54,8 @@ class PaymentDateForm extends BasePaymentDateForm {
   */
 
     //Validate if supplier already has a payment date for that month
-    //TODO On paydate edit, When sumbit throws an error takes the paydate like new an on second submit throws that the supplier already have a paydate fot that month
-    //Query to db to bring al dates of supplier_id
+    //TODO On paydate edit, When sumbit throws an error takes the paydate like new and on second submit throws that the supplier already have a paydate fot that month
+    //Query to db to bring all dates of supplier_id
     $supplierPaymentDates = Doctrine_Core::getTable('PaymentDate')->getSupplierXdate($values['supplier_id']);
 
       //Format pay date from db to Year-month
@@ -74,9 +72,8 @@ class PaymentDateForm extends BasePaymentDateForm {
 
 
       if(in_array($formatedFormDate, $formatedDbDates)){
-//        $error = new sfValidatorError($validator, 'Este proveedor ya tiene asignada una fecha de pago para este mes');
-        $this->getSupplierId()->setFlash('error', 'Este proveedor ya tiene asignada una fecha de pago para este mes');
-//        throw new sfValidatorErrorSchema($validator, array('supplier_id' => $error));
+        $error = new sfValidatorError($validator, 'Este proveedor ya tiene asignada una fecha de pago para este mes');
+        throw new sfValidatorErrorSchema($validator, array('supplier_id' => $error));
       }    
     }
    return $values;

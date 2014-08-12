@@ -61,7 +61,7 @@ div#payform.expanded div#invoice-form>div:last-child {
   border-bottom: 1px solid #cbcbcb;
 }
 
-div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#eee; }
+div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#f9f9f9; }
 /*div#payform.expanded div#invoice-form>div:nth-child(odd)    { background-color:#fff; }*/
 
 #payform.expanded #invoice-form div {
@@ -152,22 +152,24 @@ input.hasDatepicker {
 
 }
 
+.form-group.paydata.col-md-5, 
+.form-group.paydata.col-md-4 {
+  width: 45% !important;
+}
+
 .form-group.paydata.col-md-5 { 
   float: left !important;
-  width: 45% !important;
 }
 
 
 .form-group.paydata.col-md-4 {
   float: right !important;
-  width: 40% !important;
   text-align: right;
 }
 
 .form-group.paydata label, 
 .form-group.paydata input, 
 .form-group.paydata div {
-
   clear: none;
   display: inline;
 }
@@ -184,7 +186,7 @@ input.hasDatepicker {
   clear: none;
   float: left;
   overflow: hidden;
-width: 135px;
+  width: 230px;
 }
 
 .form-group.paydata.col-md-4 input {
@@ -196,11 +198,12 @@ overflow: hidden;
 .form-group.paydata.col-md-4 *,
 .form-group.paydata.col-md-5 * {
   clear: none;
-  font-size: 22px;
+  font-size: 34px;
+  height: 34px;
 }
 
 #payform.expanded .form-horizontal .form-group.paydata #payment_date_date {
-  height: 20px;
+
   padding: 0 3px;
   text-align: center;
   width: 100%;
@@ -210,4 +213,6 @@ overflow: hidden;
   line-height: 36px;
   margin-left: 8px; 
 }
+
+
 

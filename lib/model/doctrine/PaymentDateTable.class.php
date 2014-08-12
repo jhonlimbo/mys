@@ -43,6 +43,13 @@ class PaymentDateTable extends Doctrine_Table {
       ->leftJoin($rootAlias . '.Supplier s');
   }
 
+  public function getSupplierInvoices($supplier) {
+    $q = Doctrine_Query::create()
+      ->from('PaymentDate p')
+      ->where('p.supplier_id = ?', $supplier);
+
+    return $q->execute();    
+  }
 
 /*
   static public function updatePayDateTotalValue($payDateId, $deletedValue) {

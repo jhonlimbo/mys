@@ -40,4 +40,40 @@ class invoiceActions extends autoInvoiceActions {
   protected function isValidSortColumn($column) {
     return Doctrine_Core::getTable('Invoice')->hasColumn($column);
   }
+
+  public function executeTogglePaid(sfWebRequest $request) {
+    
+     $invoice = $this->getRoute()->getObject();
+     $invoice['paid'] = !$invoice['paid'];
+     $invoice->save();
+     if($invoice['paid']){
+       $this->getUser()->setFlash('notice', '¡La factura se guardó como abonada!');
+     }
+     else{
+       $this->getUser()->setFlash('notice', '¡La factura se guardó como no abonada!');
+     }
+     $this->redirect('@invoice');
+
+  }
+
+  public function executeBatchTogglePaid(sfWebRequest $request) {
+    
+    $ids = $request->getParameter('ids');
+ 
+    $q = Doctrine_Query::create()
+      ->from('Invoice i')
+      ->whereIn('i.id', $ids);
+
+    foreach ($q->execute() as $invoice) {
+       $invoice['paid'] = !$invoice['paid'];
+       $invoice->save();
+
+    }
+ 
+    $this->getUser()->setFlash('notice', '¡Las facturas se guardaron correctamente!');
+ 
+    $this->redirect('@invoice');
+
+  }
+
 }
