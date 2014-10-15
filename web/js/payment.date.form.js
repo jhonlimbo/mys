@@ -13,8 +13,8 @@ function addNewField(num){
     totalValue = 0;
     $(".invoice_value").each(
       function(index, value) {
-        var invoice_value = parseFloat($(this).val()) || 0;
-        totalValue = totalValue + eval(invoice_value);
+        var invoice_value = $(this).val() || 0;
+        totalValue = (Number(totalValue) + Number(invoice_value)).toFixed(2);
       }
     );
     $("#paydateTotal").val(totalValue);
