@@ -46,7 +46,10 @@
             </div>
             <input class="pull-right form-submit" type="submit" value="<?php echo __('Guardar')?>" />            
             <!--<input type="button" value=" Print this page " onclick="window.print();return false;" />-->
-            <label for="paydateTotal" class="total-paydate">Total: $.<input type="text" id="paydateTotal" value="0" readonly/><label>
+            <div class="total-value">
+              <label class="total-paydate-suffix">Total: $.</label>
+              <input for="paydateTotal" type="text" id="paydateTotal" value="0" readonly/>
+            </div>
           </form>
         </div>
                         <?// var_dump($form->getObject()->getInvoices());?>

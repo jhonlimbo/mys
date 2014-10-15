@@ -385,17 +385,24 @@ div#payform.expanded div#invoice-form>div:nth-child(even)   { background-color:#
 
 }
 
-#payform.expanded .total-paydate {
+#payform.expanded .total-value {
   float: right;
-  font-size: 22px;
+}
+
+#payform.expanded .total-paydate-suffix {
   margin-top: 15px;
 }
 
-#payform.expanded .total-paydate #paydateTotal {
+#payform.expanded #paydateTotal {
   border: 0 none;
   padding-right: 5px; 
   padding-left: 5px;
   width: 150px;
+}
+
+#payform.expanded .total-paydate-suffix,
+#payform.expanded #paydateTotal {
+  font-size: 22px;
 }
 
 .form-submit {

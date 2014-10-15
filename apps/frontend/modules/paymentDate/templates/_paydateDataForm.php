@@ -6,7 +6,7 @@
   </div>
 </div>
 <div class="form-group paydata col-md-4">
-  <?php echo $form['date']->renderLabel(__('Fecha de Pago:'), array('class' => 'col-md-5'))?> 
+  <?php echo $form['date']->renderLabel(__('Fecha de Pago:'), array('class' => 'col-md-5 date-label'))?> 
 
   <?php if ($form['date']->hasError()): ?>
   <div class="col-md-4 error">
